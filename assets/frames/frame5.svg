@@ -2,16 +2,17 @@
   <defs>
     <!-- Gold Gradient -->
     <linearGradient id="goldGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="0%" stop-color="#FFF9C4" />
       <stop offset="30%" stop-color="#FFD54F" />
-      <stop offset="70%" stop-color="#FFB300" />
+      <stop offset="70%" stop-color="#FFA000" />
       <stop offset="100%" stop-color="#FF8F00" />
     </linearGradient>
 
     <!-- Deep Red -->
     <linearGradient id="deepRed5" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#B71C1C" />
-      <stop offset="100%" stop-color="#5E0B10" />
+      <stop offset="0%" stop-color="#990006" />
+      <stop offset="50%" stop-color="#730004" />
+      <stop offset="100%" stop-color="#4A0002" />
     </linearGradient>
 
     <!-- Drop Shadow -->
@@ -19,66 +20,60 @@
       <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.38" />
     </filter>
 
-    <!-- Batik Parang Diagonal Pattern for Sides -->
-    <pattern id="batikParang5" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <path d="M 0,0 C 20,0 20,40 40,40 C 60,40 60,0 80,0 L 80,20 C 60,20 60,60 40,60 C 20,60 20,20 0,20 Z" fill="#FFE082" opacity="0.85" />
-      <path d="M 0,40 C 20,40 20,80 40,80 C 60,80 60,40 80,40 L 80,60 C 60,60 60,100 40,100 C 20,100 20,60 0,60 Z" fill="#FFB300" opacity="0.85" />
-      <path d="M 10,10 C 20,15 20,25 30,30" stroke="#B71C1C" stroke-width="2" fill="none" />
-      <path d="M 50,50 C 60,55 60,65 70,70" stroke="#B71C1C" stroke-width="2" fill="none" />
+    <!-- Refined Traditional Batik Parang Pattern -->
+    <pattern id="batikParang5" width="50" height="50" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M 0,0 C 12,0 12,25 25,25 C 37,25 37,0 50,0 L 50,12 C 37,12 37,37 25,37 C 12,37 12,12 0,12 Z" fill="#FFD54F" opacity="0.8" />
+      <path d="M 0,25 C 12,25 12,50 25,50 C 37,50 37,25 50,25 L 50,37 C 37,37 37,62 25,62 C 12,62 12,37 0,37 Z" fill="#FFA000" opacity="0.8" />
     </pattern>
   </defs>
 
-  <!-- SOLID BORDERS -->
-  <rect x="0" y="0" width="1200" height="1500" fill="none" stroke="url(#goldGrad5)" stroke-width="16" />
-  <rect x="16" y="16" width="1168" height="1468" fill="none" stroke="url(#deepRed5)" stroke-width="12" />
+  <!-- SOLID LUXURY BORDERS -->
+  <rect x="12" y="12" width="1176" height="1476" rx="24" fill="none" stroke="url(#goldGrad5)" stroke-width="10" />
+  <rect x="22" y="22" width="1156" height="1456" rx="16" fill="none" stroke="url(#deepRed5)" stroke-width="8" />
 
-  <!-- LEFT AND RIGHT BATIK COLUMNS (W=110px) -->
-  <rect x="28" y="28" width="110" height="1444" fill="url(#deepRed5)" />
-  <rect x="28" y="28" width="110" height="1444" fill="url(#batikParang5)" />
-  <line x1="138" y1="28" x2="138" y2="1472" stroke="url(#goldGrad5)" stroke-width="4" />
+  <!-- SLIM ELEGANT BATIK SIDE PILLARS (W=65px) -->
+  <rect x="30" y="30" width="65" height="1440" fill="url(#deepRed5)" />
+  <rect x="30" y="30" width="65" height="1440" fill="url(#batikParang5)" />
+  <line x1="95" y1="30" x2="95" y2="1470" stroke="url(#goldGrad5)" stroke-width="3" />
 
-  <rect x="1062" y="28" width="110" height="1444" fill="url(#deepRed5)" />
-  <rect x="1062" y="28" width="110" height="1444" fill="url(#batikParang5)" />
-  <line x1="1062" y1="28" x2="1062" y2="1472" stroke="url(#goldGrad5)" stroke-width="4" />
+  <rect x="1105" y="30" width="65" height="1440" fill="url(#deepRed5)" />
+  <rect x="1105" y="30" width="65" height="1440" fill="url(#batikParang5)" />
+  <line x1="1105" y1="30" x2="1105" y2="1470" stroke="url(#goldGrad5)" stroke-width="3" />
 
-  <!-- TOP BANNER BLOCK -->
-  <path d="M 138,28 L 1062,28 L 1062,205 Q 600,235 138,205 Z" fill="url(#deepRed5)" stroke="url(#goldGrad5)" stroke-width="4" />
-  
-  <text x="600" y="100" font-family="'Outfit', sans-serif" font-weight="900" font-size="44" fill="url(#goldGrad5)" text-anchor="middle" filter="url(#shadow5)" letter-spacing="3">
-    DIRGAHAYU REPUBLIK INDONESIA
-  </text>
-  <text x="600" y="160" font-family="'Outfit', sans-serif" font-weight="800" font-size="30" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
-    HUT RI KE-81 &#8226; 17 AGUSTUS 2026
-  </text>
+  <!-- TOP ROYAL BANNER -->
+  <g filter="url(#shadow5)">
+    <path d="M 95,30 L 1105,30 L 1105,210 Q 600,250 95,210 Z" fill="url(#deepRed5)" stroke="url(#goldGrad5)" stroke-width="3" />
 
-  <!-- BOTTOM BANNER BLOCK -->
-  <path d="M 138,1290 Q 600,1260 1062,1290 L 1062,1472 L 138,1472 Z" fill="url(#deepRed5)" stroke="url(#goldGrad5)" stroke-width="4" />
+    <!-- Center 81 Gold Medallion -->
+    <g transform="translate(600, 85)">
+      <polygon points="0,-40 28,-28 40,0 28,28 0,40 -28,28 -40,0 -28,-28" fill="url(#goldGrad5)" stroke="#FFFFFF" stroke-width="2" />
+      <polygon points="0,-32 22,-22 32,0 22,22 0,32 -22,22 -32,0 -22,-22" fill="#730004" />
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-weight="900" font-size="42" fill="url(#goldGrad5)" text-anchor="middle">81</text>
+    </g>
 
-  <!-- Traditional Ornate Mandala in Center of Bottom Banner -->
-  <g transform="translate(600, 1380) scale(0.95)" fill="url(#goldGrad5)" filter="url(#shadow5)">
-    <path d="M0,-50 C15,-20 40,-20 50,0 C40,20 15,20 0,50 C-15,20 -40,20 -50,0 C-40,-20 -15,-20 0,-50 Z" />
-    <path d="M-50,0 C-20,-15 -20,-40 0,-50 C20,-40 20,-15 50,0 C20,15 20,40 0,50 C-20,40 -20,15 -50,0 Z" opacity="0.8" />
-    <circle cx="0" cy="0" r="12" fill="#B71C1C" stroke="url(#goldGrad5)" stroke-width="3" />
-  </g>
-
-  <!-- Texts inside bottom block -->
-  <!-- Left Side Text -->
-  <g transform="translate(190, 1365)">
-    <text x="0" y="0" font-family="'Outfit', sans-serif" font-weight="900" font-size="36" fill="url(#goldGrad5)">
-      KARANGJAMBE
+    <!-- Top Titles -->
+    <text x="600" y="160" font-family="'Outfit', sans-serif" font-weight="900" font-size="38" fill="url(#goldGrad5)" text-anchor="middle" letter-spacing="3">
+      DIRGAHAYU REPUBLIK INDONESIA
     </text>
-    <text x="0" y="38" font-family="'Outfit', sans-serif" font-weight="700" font-size="22" fill="#FFFFFF" letter-spacing="2">
-      RUKUN TETANGGA 05
+    <text x="600" y="196" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#FFFFFF" text-anchor="middle" letter-spacing="5">
+      HUT RI KE-81 &#8226; 17 AGUSTUS 2026
     </text>
   </g>
 
-  <!-- Right Side Text -->
-  <g transform="translate(1010, 1365)">
-    <text x="0" y="0" font-family="'Outfit', sans-serif" font-weight="900" font-size="30" fill="url(#goldGrad5)" text-anchor="end">
-      BATIK NUSANTARA
-    </text>
-    <text x="0" y="38" font-family="'Outfit', sans-serif" font-weight="700" font-size="20" fill="#FFFFFF" text-anchor="end" letter-spacing="2">
-      WARISAN BUDAYA BANGSA
+  <!-- BOTTOM ROYAL BATIK BASE -->
+  <g filter="url(#shadow5)">
+    <path d="M 95,1280 Q 600,1240 1105,1280 L 1105,1470 L 95,1470 Z" fill="url(#deepRed5)" stroke="url(#goldGrad5)" stroke-width="3" />
+
+    <!-- Center Plaque -->
+    <g transform="translate(600, 1345)">
+      <rect x="-270" y="-32" width="540" height="64" rx="32" fill="url(#goldGrad5)" stroke="#FFFFFF" stroke-width="3" />
+      <text x="0" y="12" font-family="'Outfit', sans-serif" font-weight="900" font-size="36" fill="#730004" text-anchor="middle" letter-spacing="3">
+        KARANGJAMBE RT 05
+      </text>
+    </g>
+
+    <text x="600" y="1428" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#FFFFFF" text-anchor="middle" letter-spacing="5">
+      BATIK NUSANTARA &#8226; WARISAN BUDAYA BANGSA
     </text>
   </g>
 </svg>

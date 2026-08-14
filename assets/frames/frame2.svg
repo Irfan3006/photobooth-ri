@@ -2,9 +2,9 @@
   <defs>
     <!-- Paper Texture Gradient -->
     <linearGradient id="vintagePaper2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FDFBF7" />
-      <stop offset="50%" stop-color="#F5EFE0" />
-      <stop offset="100%" stop-color="#E8DCBF" />
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="50%" stop-color="#F7F1E1" />
+      <stop offset="100%" stop-color="#EADBBE" />
     </linearGradient>
 
     <!-- Dark Red Vintage Gradient -->
@@ -15,91 +15,101 @@
 
     <!-- Gold Accent -->
     <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFE082" />
-      <stop offset="50%" stop-color="#FFC107" />
+      <stop offset="0%" stop-color="#FFF8E1" />
+      <stop offset="30%" stop-color="#FFD54F" />
+      <stop offset="70%" stop-color="#FFB300" />
       <stop offset="100%" stop-color="#FF8F00" />
     </linearGradient>
 
     <!-- Drop Shadow -->
     <filter id="shadow2" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.38" />
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.32" />
     </filter>
   </defs>
 
   <!-- SOLID VINTAGE POSTER BORDER -->
-  <rect x="0" y="0" width="1200" height="220" fill="url(#darkRedGrad2)" />
-  <rect x="0" y="220" width="1200" height="12" fill="#FFFFFF" />
-  
-  <!-- Left and Right Vertical Pillars -->
-  <rect x="0" y="232" width="36" height="1048" fill="#4A0E17" />
-  <rect x="1164" y="232" width="36" height="1048" fill="#4A0E17" />
-  <rect x="36" y="232" width="8" height="1048" fill="#FFFFFF" />
-  <rect x="1156" y="232" width="8" height="1048" fill="#FFFFFF" />
+  <rect x="14" y="14" width="1172" height="1472" rx="20" fill="none" stroke="#4A0E17" stroke-width="12" />
+  <rect x="24" y="24" width="1152" height="1452" rx="14" fill="none" stroke="url(#goldGrad2)" stroke-width="4" />
 
-  <!-- Bottom Solid Base -->
-  <rect x="0" y="1280" width="1200" height="220" fill="url(#vintagePaper2)" stroke="#4A0E17" stroke-width="8" />
-
-  <!-- TOP HEADER TEXTS -->
+  <!-- TOP HEADER (ELEGANT VINTAGE BANNER) -->
   <g filter="url(#shadow2)">
-    <text x="600" y="80" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="52" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
+    <!-- Main Banner Arch -->
+    <path d="M 24,24 L 1176,24 L 1176,220 C 850,260 350,260 24,220 Z" fill="url(#darkRedGrad2)" />
+    <path d="M 24,220 C 350,260 850,260 1176,220" fill="none" stroke="url(#goldGrad2)" stroke-width="4" />
+    
+    <!-- Top Central Pill: PROKLAMASI 1945 -->
+    <g transform="translate(600, 75)">
+      <rect x="-180" y="-22" width="360" height="44" rx="22" fill="url(#goldGrad2)" stroke="#FFFFFF" stroke-width="2" />
+      <text x="0" y="7" font-family="'Outfit', sans-serif" font-weight="900" font-size="20" fill="#4A0E17" text-anchor="middle" letter-spacing="3">
+        EDISI PROKLAMASI 1945
+      </text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="600" y="152" font-family="'Outfit', sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
       DIRGAHAYU REPUBLIK INDONESIA
     </text>
-    <text x="600" y="152" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="64" fill="url(#goldGrad2)" text-anchor="middle" letter-spacing="3">
-      HUT RI KE-81
-    </text>
-    <text x="600" y="195" font-family="'Outfit', sans-serif" font-weight="700" font-size="22" fill="#FFFFFF" text-anchor="middle" letter-spacing="6">
-      17 AGUSTUS 1945 &#8226; 17 AGUSTUS 2026
+    <text x="600" y="196" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" fill="url(#goldGrad2)" text-anchor="middle" letter-spacing="6">
+      HUT RI KE-81 &#8226; 17 AGUSTUS 2026
     </text>
   </g>
 
-  <!-- BOTTOM DESIGN: VINTAGE 1945 HISTORICAL TRIBUTE -->
-  <!-- Left Side: Silhouette of Sukarno Reading Proklamasi Text -->
-  <g transform="translate(60, 1040) scale(1.6)" filter="url(#shadow2)">
-    <!-- Body -->
-    <path d="M 50,-10 C 35,-10 25,10 25,30 L 25,150 L 95,150 L 95,30 C 95,10 85,-10 70,-10 Z" fill="#111111" />
-    <!-- Head with Peci -->
-    <circle cx="60" cy="-35" r="16" fill="#111111" />
-    <polygon points="46,-47 74,-47 69,-32 51,-32" fill="#111111" />
-    <!-- Reading sheet (Proklamasi Paper) -->
-    <path d="M 70,-20 L 112,-35 L 117,-10 L 75,0 Z" fill="#FDFBF7" stroke="#111111" stroke-width="1.5" />
-    <!-- Arm holding paper -->
-    <path d="M 75,-5 L 90,-20 L 98,-15 L 82,5 Z" fill="#111111" />
-    
-    <!-- Vintage Microphones silhouette in front of him -->
-    <g transform="translate(112, -5)" fill="#424242">
-      <line x1="10" y1="-40" x2="10" y2="140" stroke="#111111" stroke-width="3" />
-      <rect x="4" y="-55" width="12" height="15" rx="3" fill="#111111" stroke="#FFFFFF" stroke-width="0.5" />
-      <circle cx="10" cy="-60" r="4" fill="#111111" />
+  <!-- SIDE VINTAGE STAMP ACCENTS -->
+  <g opacity="0.85">
+    <polygon points="24,500 50,520 50,560 24,580" fill="url(#darkRedGrad2)" />
+    <polygon points="1176,500 1150,520 1150,560 1176,580" fill="url(#darkRedGrad2)" />
+  </g>
+
+  <!-- BOTTOM HISTORICAL PANEL (SPACIOUS & CLEAN) -->
+  <g filter="url(#shadow2)">
+    <!-- Base Panel -->
+    <path d="M 24,1260 C 350,1220 850,1220 1176,1260 L 1176,1476 L 24,1476 Z" fill="url(#vintagePaper2)" stroke="#4A0E17" stroke-width="4" />
+    <path d="M 24,1260 C 350,1220 850,1220 1176,1260" fill="none" stroke="url(#goldGrad2)" stroke-width="4" />
+
+    <!-- Left Silhouette: Bung Karno Reading Proklamasi Text -->
+    <g transform="translate(100, 1265) scale(1.15)">
+      <!-- Head with Peci -->
+      <circle cx="45" cy="20" r="14" fill="#111111" />
+      <polygon points="32,8 58,8 54,20 36,20" fill="#111111" />
+      <!-- Body & Jacket -->
+      <path d="M 22,40 C 22,32 30,30 45,30 C 60,30 68,32 68,40 L 72,130 L 18,130 Z" fill="#111111" />
+      <!-- Reading sheet (Naskah) -->
+      <path d="M 55,42 L 95,28 L 98,58 L 58,70 Z" fill="#FFFFFF" stroke="#111111" stroke-width="1.5" />
+      <!-- Arm holding paper -->
+      <path d="M 50,45 L 68,36 L 74,42 L 56,58 Z" fill="#111111" />
+      <!-- Microphone Stand -->
+      <line x1="90" y1="20" x2="90" y2="130" stroke="#333333" stroke-width="3" />
+      <circle cx="90" cy="14" r="7" fill="#111111" />
     </g>
-  </g>
 
-  <!-- Center-Right: Big Dynamic MERDEKA! -->
-  <g transform="translate(700, 1375)">
-    <!-- Red Paint Brush Splash behind Merdeka -->
-    <path d="M -230,-45 Q -100,-75 60,-52 Q 220,-30 270,-10 Q 160,45 -20,25 Q -160,55 -230,-45 Z" fill="url(#darkRedGrad2)" filter="url(#shadow2)" />
-    
-    <text x="15" y="0" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="76" fill="#FFFFFF" text-anchor="middle" letter-spacing="6">
-      MERDEKA!
-    </text>
-  </g>
+    <!-- Center Info Text: Typewriter Style -->
+    <g transform="translate(380, 1315)">
+      <rect x="-10" y="-12" width="460" height="96" rx="8" fill="#FFFFFF" stroke="url(#goldGrad2)" stroke-width="2" />
+      <text x="220" y="24" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#4A0E17" text-anchor="middle" letter-spacing="2">
+        KARANGJAMBE RT 05
+      </text>
+      <text x="220" y="52" font-family="'Outfit', sans-serif" font-weight="700" font-size="18" fill="#7F8C8D" text-anchor="middle" letter-spacing="3">
+        PERINGATAN 17 AGUSTUS 2026
+      </text>
+      <text x="220" y="74" font-family="'Courier New', monospace" font-weight="800" font-size="15" fill="#B71C1C" text-anchor="middle">
+        Naskah Otentik 17-08-1945
+      </text>
+    </g>
 
-  <!-- Bottom Left Info Stamp -->
-  <g transform="translate(230, 1315)">
-    <text x="0" y="30" font-family="'Outfit', sans-serif" font-weight="900" font-size="32" fill="#4A0E17" letter-spacing="1">
-      KARANGJAMBE RT 05
-    </text>
-    <text x="0" y="66" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#7F8C8D" letter-spacing="3">
-      PERINGATAN 17 AGUSTUS 2026
-    </text>
-    <text x="0" y="100" font-family="'Courier New', monospace" font-weight="800" font-size="18" fill="#B71C1C" letter-spacing="1">
-      Naskah Otentik Proklamasi 1945
-    </text>
-  </g>
+    <!-- Right Side: Official MERDEKA! Badge -->
+    <g transform="translate(1000, 1360)">
+      <circle cx="0" cy="0" r="50" fill="url(#darkRedGrad2)" stroke="url(#goldGrad2)" stroke-width="4" />
+      <text x="0" y="-6" font-family="'Outfit', sans-serif" font-weight="900" font-size="20" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+        MERDEKA
+      </text>
+      <text x="0" y="20" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="url(#goldGrad2)" text-anchor="middle">
+        1945
+      </text>
+    </g>
 
-  <!-- Right corner: Official seal badge -->
-  <g transform="translate(1070, 1370) scale(0.9)" filter="url(#shadow2)">
-    <circle cx="0" cy="0" r="45" fill="none" stroke="#B71C1C" stroke-width="4" stroke-dasharray="6, 4" />
-    <circle cx="0" cy="0" r="38" fill="none" stroke="#4A0E17" stroke-width="2" />
-    <text x="0" y="8" font-family="'Outfit', sans-serif" font-weight="900" font-size="24" fill="#B71C1C" text-anchor="middle">81</text>
+    <!-- Bottom Tagline -->
+    <text x="600" y="1445" font-family="'Outfit', sans-serif" font-weight="800" font-size="20" fill="#4A0E17" text-anchor="middle" letter-spacing="4">
+      ATAS NAMA BANGSA INDONESIA &#8226; SOEKARNO - HATTA
+    </text>
   </g>
 </svg>

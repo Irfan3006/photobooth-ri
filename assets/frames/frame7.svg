@@ -8,96 +8,85 @@
     </linearGradient>
 
     <linearGradient id="goldGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFF59D" />
+      <stop offset="0%" stop-color="#FFF9C4" />
       <stop offset="30%" stop-color="#FFD54F" />
       <stop offset="70%" stop-color="#FFA000" />
       <stop offset="100%" stop-color="#FF8F00" />
     </linearGradient>
 
-    <linearGradient id="whiteRibbon7" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="100%" stop-color="#ECEFF1" />
-    </linearGradient>
-
     <!-- Drop Shadow -->
     <filter id="shadow7" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.32" />
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.3" />
     </filter>
   </defs>
 
   <!-- OUTER BORDERS -->
-  <rect x="14" y="14" width="1172" height="1472" rx="28" fill="none" stroke="url(#modernRed7)" stroke-width="12" />
-  <rect x="26" y="26" width="1148" height="1448" rx="20" fill="none" stroke="url(#goldGrad7)" stroke-width="4" />
+  <rect x="14" y="14" width="1172" height="1472" rx="24" fill="none" stroke="url(#modernRed7)" stroke-width="12" />
+  <rect x="24" y="24" width="1152" height="1452" rx="16" fill="none" stroke="url(#goldGrad7)" stroke-width="4" />
 
   <!-- TOP HEADER (Modern Twibbon Geometric Arch) -->
   <g filter="url(#shadow7)">
-    <!-- Red Upper Canopy -->
-    <path d="M 26,26 L 1174,26 L 1174,200 C 950,260 250,260 26,200 Z" fill="url(#modernRed7)" />
-    <!-- White Intersecting Ribbon -->
-    <path d="M 26,190 C 250,250 950,250 1174,190 L 1174,210 C 950,270 250,270 26,210 Z" fill="url(#whiteRibbon7)" />
-    <!-- Gold Trim Line -->
-    <path d="M 26,210 C 250,270 950,270 1174,210" fill="none" stroke="url(#goldGrad7)" stroke-width="4" />
+    <path d="M 24,24 L 1176,24 L 1176,220 C 850,270 350,270 24,220 Z" fill="url(#modernRed7)" />
+    <path d="M 24,220 C 350,270 850,270 1176,220 L 1176,234 C 850,284 350,284 24,234 Z" fill="#FFFFFF" />
+    <path d="M 24,234 C 350,284 850,284 1176,234" fill="none" stroke="url(#goldGrad7)" stroke-width="3" />
   </g>
 
-  <!-- TOP 81 GOLDEN LAUREL EMBLEM -->
-  <g transform="translate(600, 115)" filter="url(#shadow7)">
-    <!-- Shield / Hexagon Badge -->
-    <polygon points="0,-50 45,-25 45,25 0,50 -45,25 -45,-25" fill="url(#goldGrad7)" stroke="#FFFFFF" stroke-width="3" />
-    <text x="0" y="16" font-family="'Outfit', sans-serif" font-weight="900" font-size="52" fill="#B71C1C" text-anchor="middle">81</text>
-    
+  <!-- TOP 81 GOLDEN MEDALLION WITH LAUREL WREATH -->
+  <g transform="translate(600, 100)" filter="url(#shadow7)">
     <!-- Laurel Wreath (Left) -->
     <g fill="url(#goldGrad7)">
-      <ellipse cx="-60" cy="-20" rx="8" ry="16" transform="rotate(-40 -60 -20)" />
-      <ellipse cx="-75" cy="0" rx="8" ry="16" transform="rotate(-70 -75 0)" />
-      <ellipse cx="-65" cy="25" rx="8" ry="16" transform="rotate(-110 -65 25)" />
-      <ellipse cx="-45" cy="45" rx="8" ry="16" transform="rotate(-140 -45 45)" />
+      <ellipse cx="-52" cy="-14" rx="6" ry="14" transform="rotate(-35 -52 -14)" />
+      <ellipse cx="-64" cy="6" rx="6" ry="14" transform="rotate(-65 -64 6)" />
+      <ellipse cx="-54" cy="26" rx="6" ry="14" transform="rotate(-105 -54 26)" />
     </g>
 
     <!-- Laurel Wreath (Right) -->
     <g fill="url(#goldGrad7)">
-      <ellipse cx="60" cy="-20" rx="8" ry="16" transform="rotate(40 60 -20)" />
-      <ellipse cx="75" cy="0" rx="8" ry="16" transform="rotate(70 75 0)" />
-      <ellipse cx="65" cy="25" rx="8" ry="16" transform="rotate(110 65 25)" />
-      <ellipse cx="45" cy="45" rx="8" ry="16" transform="rotate(140 45 45)" />
+      <ellipse cx="52" cy="-14" rx="6" ry="14" transform="rotate(35 52 -14)" />
+      <ellipse cx="64" cy="6" rx="6" ry="14" transform="rotate(65 64 6)" />
+      <ellipse cx="54" cy="26" rx="6" ry="14" transform="rotate(105 54 26)" />
     </g>
+
+    <!-- Shield Emblem -->
+    <polygon points="0,-42 36,-20 36,20 0,42 -36,20 -36,-20" fill="url(#goldGrad7)" stroke="#FFFFFF" stroke-width="2.5" />
+    <polygon points="0,-34 28,-15 28,15 0,34 -28,15 -28,-15" fill="#FFFFFF" />
+    <text x="0" y="14" font-family="'Outfit', sans-serif" font-weight="900" font-size="44" fill="#B71C1C" text-anchor="middle">81</text>
   </g>
 
-  <!-- TOP TITLE TYPOGRAPHY -->
+  <!-- TOP TITLE TYPOGRAPHY (CLEAN & SPACED) -->
   <g filter="url(#shadow7)">
-    <text x="600" y="195" font-family="'Outfit', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
+    <text x="600" y="185" font-family="'Outfit', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
       DIRGAHAYU REPUBLIK INDONESIA
     </text>
-    <text x="600" y="235" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="url(#goldGrad7)" text-anchor="middle" letter-spacing="6">
+    <text x="600" y="222" font-family="'Outfit', sans-serif" font-weight="800" font-size="20" fill="url(#goldGrad7)" text-anchor="middle" letter-spacing="6">
       PAHLAWAN KEMERDEKAAN &#8226; 17 AGUSTUS 2026
     </text>
   </g>
 
   <!-- SIDE GEOMETRIC ACCENTS -->
   <g fill="url(#modernRed7)" opacity="0.9">
-    <polygon points="26,620 70,640 70,680 26,700" />
-    <polygon points="26,720 60,735 60,760 26,775" fill="url(#goldGrad7)" />
+    <polygon points="24,620 65,635 65,670 24,685" />
+    <polygon points="24,705 55,718 55,740 24,752" fill="url(#goldGrad7)" />
 
-    <polygon points="1174,620 1130,640 1130,680 1174,700" />
-    <polygon points="1174,720 1140,735 1140,760 1174,775" fill="url(#goldGrad7)" />
+    <polygon points="1176,620 1135,635 1135,670 1176,685" />
+    <polygon points="1176,705 1145,718 1145,740 1176,752" fill="url(#goldGrad7)" />
   </g>
 
   <!-- BOTTOM FOOTER (Contemporary Geometric Base) -->
   <g filter="url(#shadow7)">
-    <!-- Dark Red Curved Panel -->
-    <path d="M 26,1280 C 250,1220 950,1220 1174,1280 L 1174,1474 L 26,1474 Z" fill="url(#modernRed7)" />
-    <!-- Gold Top Trim -->
-    <path d="M 26,1280 C 250,1220 950,1220 1174,1280" fill="none" stroke="url(#goldGrad7)" stroke-width="5" />
+    <path d="M 24,1270 C 350,1210 850,1210 1176,1270 L 1176,1476 L 24,1476 Z" fill="url(#modernRed7)" />
+    <path d="M 24,1270 C 350,1210 850,1210 1176,1270" fill="none" stroke="url(#goldGrad7)" stroke-width="5" />
 
     <!-- Center White Pill Badge -->
-    <g transform="translate(600, 1345)">
-      <rect x="-290" y="-35" width="580" height="70" rx="35" fill="#FFFFFF" stroke="url(#goldGrad7)" stroke-width="4" filter="url(#shadow7)" />
-      <text x="0" y="14" font-family="'Outfit', sans-serif" font-weight="900" font-size="38" fill="#B71C1C" text-anchor="middle" letter-spacing="3">
+    <g transform="translate(600, 1340)">
+      <rect x="-280" y="-34" width="560" height="68" rx="34" fill="#FFFFFF" stroke="url(#goldGrad7)" stroke-width="3" />
+      <text x="0" y="13" font-family="'Outfit', sans-serif" font-weight="900" font-size="36" fill="#B71C1C" text-anchor="middle" letter-spacing="3">
         KARANGJAMBE RT 05
       </text>
     </g>
 
     <!-- Subtitle text -->
-    <text x="600" y="1430" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" fill="#FFFFFF" text-anchor="middle" letter-spacing="5">
+    <text x="600" y="1425" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" fill="#FFFFFF" text-anchor="middle" letter-spacing="5">
       BERSATU KITA TEGUH &#8226; MERDEKA!
     </text>
   </g>

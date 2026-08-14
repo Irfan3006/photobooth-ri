@@ -2,135 +2,105 @@
   <defs>
     <!-- Drop Shadow -->
     <filter id="shadow4" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.28" />
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.25" />
     </filter>
     
-    <!-- Gold Balloon Gradient -->
+    <!-- Balloon Gradients -->
     <linearGradient id="goldBalloon4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="0%" stop-color="#FFF3B0" />
       <stop offset="50%" stop-color="#FFCA28" />
       <stop offset="100%" stop-color="#FF8F00" />
     </linearGradient>
 
-    <!-- Red Balloon Gradient -->
     <linearGradient id="redBalloon4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF8A80" />
+      <stop offset="0%" stop-color="#FF6B6B" />
       <stop offset="50%" stop-color="#E53935" />
       <stop offset="100%" stop-color="#B71C1C" />
     </linearGradient>
 
-    <!-- White Balloon Gradient -->
     <linearGradient id="whiteBalloon4" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="70%" stop-color="#ECEFF1" />
-      <stop offset="100%" stop-color="#CFD8DC" />
+      <stop offset="70%" stop-color="#F1F5F9" />
+      <stop offset="100%" stop-color="#CBD5E1" />
     </linearGradient>
   </defs>
 
   <!-- FESTIVE OUTER BORDERS -->
-  <rect x="0" y="0" width="1200" height="1500" fill="none" stroke="#E62129" stroke-width="16" />
-  <rect x="16" y="16" width="1168" height="1468" fill="none" stroke="#FFC107" stroke-width="8" />
+  <rect x="12" y="12" width="1176" height="1476" rx="24" fill="none" stroke="#E62129" stroke-width="12" />
+  <rect x="22" y="22" width="1156" height="1456" rx="16" fill="none" stroke="#FFC107" stroke-width="6" />
 
-  <!-- TOP BUNTING FLAGS (Red and White Triangles) -->
-  <g transform="translate(0, 24)">
-    <path d="M 16,30 Q 300,100 600,30 Q 900,100 1184,30" fill="none" stroke="#B0BEC5" stroke-width="3" />
-    
-    <!-- Flags Left -->
-    <polygon points="50,38 100,50 90,140 50,110" fill="#E53935" />
-    <polygon points="50,38 100,50 95,95 50,75" fill="#FFFFFF" />
+  <!-- TOP HEADER BANNER (CLEAN & FESTIVE) -->
+  <g filter="url(#shadow4)">
+    <!-- Top Red Canopy -->
+    <path d="M 22,22 L 1178,22 L 1178,200 Q 600,250 22,200 Z" fill="#E62129" />
+    <path d="M 22,200 Q 600,250 1178,200" fill="none" stroke="#FFC107" stroke-width="5" />
 
-    <polygon points="150,55 200,62 195,150 150,130" fill="#E53935" />
-    <polygon points="150,55 200,62 197,105 150,90" fill="#FFFFFF" />
-
-    <polygon points="250,68 300,70 295,160 250,145" fill="#E53935" />
-    <polygon points="250,68 300,70 297,115 250,105" fill="#FFFFFF" />
-
-    <polygon points="350,70 400,68 395,160 350,145" fill="#E53935" />
-    <polygon points="350,70 400,68 397,115 350,110" fill="#FFFFFF" />
-
-    <polygon points="450,62 500,55 495,150 450,130" fill="#E53935" />
-    <polygon points="450,62 500,55 497,105 450,95" fill="#FFFFFF" />
-
-    <!-- Flags Right -->
-    <polygon points="700,55 750,62 745,150 700,130" fill="#E53935" />
-    <polygon points="700,55 750,62 747,105 700,95" fill="#FFFFFF" />
-
-    <polygon points="800,68 850,70 845,160 800,145" fill="#E53935" />
-    <polygon points="800,68 850,70 847,115 800,105" fill="#FFFFFF" />
-
-    <polygon points="900,70 950,68 945,160 900,145" fill="#E53935" />
-    <polygon points="900,70 950,68 947,115 900,110" fill="#FFFFFF" />
-
-    <polygon points="1000,62 1050,55 1045,150 1000,130" fill="#E53935" />
-    <polygon points="1000,62 1050,55 1047,105 1000,95" fill="#FFFFFF" />
-
-    <polygon points="1100,50 1150,38 1145,110 1100,140" fill="#E53935" />
-    <polygon points="1100,50 1150,38 1147,75 1100,95" fill="#FFFFFF" />
-  </g>
-
-  <!-- TOP HEADER (Cheerful Badge) -->
-  <g transform="translate(600, 110)" filter="url(#shadow4)">
-    <rect x="-360" y="-55" width="720" height="110" rx="55" fill="#E62129" stroke="#FFFFFF" stroke-width="6" />
-    <text x="0" y="-10" font-family="'Outfit', sans-serif" font-weight="900" font-size="36" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">
-      DIRGAHAYU REPUBLIK INDONESIA
-    </text>
-    <text x="0" y="32" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="#FFEB3B" text-anchor="middle" letter-spacing="1">
-      SEMARAK 17-AN KARANGJAMBE
-    </text>
-  </g>
-
-  <!-- BALLOONS DECORATION -->
-  <!-- Left Side Balloons -->
-  <g transform="translate(70, 240)" filter="url(#shadow4)">
-    <!-- Red Balloon -->
-    <path d="M 30,0 C 0,0 -20,40 -20,70 C -20,100 10,120 30,120 C 50,120 80,100 80,70 C 80,40 60,0 30,0 Z" fill="url(#redBalloon4)" />
-    <ellipse cx="15" cy="45" rx="8" ry="16" transform="rotate(-30 15 45)" fill="#FFFFFF" opacity="0.6" />
-    
-    <!-- White Balloon behind -->
-    <path d="M 80,40 C 60,40 40,70 40,95 C 40,120 65,135 80,135 C 95,135 120,120 120,95 C 120,70 100,40 80,40 Z" fill="url(#whiteBalloon4)" opacity="0.9" />
-
-    <!-- Balloon string -->
-    <path d="M 30,120 Q 20,160 40,200 Q 20,240 30,280" fill="none" stroke="#B0BEC5" stroke-width="2" />
-  </g>
-
-  <!-- Right Side Balloons -->
-  <g transform="translate(1050, 240)" filter="url(#shadow4)">
-    <!-- Gold 81 Balloon -->
-    <path d="M 40,0 C 10,0 -10,40 -10,70 C -10,100 20,120 40,120 C 60,120 90,100 90,70 C 90,40 70,0 40,0 Z" fill="url(#goldBalloon4)" />
-    <ellipse cx="25" cy="45" rx="8" ry="16" transform="rotate(-30 25 45)" fill="#FFFFFF" opacity="0.6" />
-    
-    <!-- 81 on Balloon -->
-    <text x="40" y="80" font-family="'Outfit', sans-serif" font-weight="900" font-size="38" fill="#B71C1C" text-anchor="middle">81</text>
-    
-    <!-- Balloon string -->
-    <path d="M 40,120 Q 50,160 30,200 Q 50,240 40,280" fill="none" stroke="#B0BEC5" stroke-width="2" />
-  </g>
-
-  <!-- CONFETTI ACCENTS -->
-  <g opacity="0.85">
-    <rect x="45" y="600" width="16" height="32" rx="4" fill="#FFEB3B" transform="rotate(25 45 600)" />
-    <rect x="65" y="700" width="14" height="28" rx="4" fill="#E62129" transform="rotate(-40 65 700)" />
-    <rect x="40" y="800" width="18" height="30" rx="4" fill="#4CAF50" transform="rotate(15 40 800)" />
-    
-    <rect x="1135" y="600" width="16" height="32" rx="4" fill="#2196F3" transform="rotate(-25 1135 600)" />
-    <rect x="1115" y="700" width="14" height="28" rx="4" fill="#FF9800" transform="rotate(40 1115 700)" />
-    <rect x="1140" y="800" width="18" height="30" rx="4" fill="#E62129" transform="rotate(-15 1140 800)" />
-  </g>
-
-  <!-- BOTTOM FESTIVE BANNER -->
-  <g transform="translate(0, 1310)" filter="url(#shadow4)">
-    <path d="M 24,60 Q 600,0 1176,60 L 1176,166 L 24,166 Z" fill="#E62129" />
-    <path d="M 24,60 Q 600,0 1176,60" fill="none" stroke="#FFC107" stroke-width="6" />
-
-    <!-- Center Box with RT 05 and Slogan -->
+    <!-- Top Badge: HUT RI KE-81 -->
     <g transform="translate(600, 75)">
-      <rect x="-260" y="-30" width="520" height="60" rx="30" fill="#FFFFFF" stroke="#FFC107" stroke-width="3" />
-      <text x="0" y="12" font-family="'Outfit', sans-serif" font-weight="900" font-size="34" fill="#B71C1C" text-anchor="middle" letter-spacing="2">
-        RT 05 KARANGJAMBE
+      <rect x="-160" y="-22" width="320" height="44" rx="22" fill="#FFC107" stroke="#FFFFFF" stroke-width="2" />
+      <text x="0" y="7" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#B71C1C" text-anchor="middle" letter-spacing="2">
+        HUT RI KE-81
       </text>
     </g>
 
-    <text x="600" y="145" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">
+    <!-- Main Title -->
+    <text x="600" y="148" font-family="'Outfit', sans-serif" font-weight="900" font-size="40" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">
+      DIRGAHAYU REPUBLIK INDONESIA
+    </text>
+    <text x="600" y="188" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#FFEB3B" text-anchor="middle" letter-spacing="4">
+      SEMARAK 17-AN KARANGJAMBE RT 05
+    </text>
+  </g>
+
+  <!-- TOP CORNER BALLOON BUNDLES (NESTLED NEATLY AT CORNERS) -->
+  <!-- Top-Left Balloon Cluster -->
+  <g transform="translate(85, 95)" filter="url(#shadow4)">
+    <!-- Red Balloon -->
+    <ellipse cx="0" cy="0" rx="30" ry="38" fill="url(#redBalloon4)" />
+    <ellipse cx="-8" cy="-10" rx="6" ry="12" fill="#FFFFFF" opacity="0.6" />
+    <!-- White Balloon -->
+    <ellipse cx="40" cy="15" rx="26" ry="34" fill="url(#whiteBalloon4)" />
+    <ellipse cx="34" cy="5" rx="5" ry="10" fill="#FFFFFF" opacity="0.8" />
+    <!-- Gold Balloon with 81 -->
+    <ellipse cx="20" cy="45" rx="28" ry="36" fill="url(#goldBalloon4)" />
+    <text x="20" y="52" font-family="'Outfit', sans-serif" font-weight="900" font-size="20" fill="#B71C1C" text-anchor="middle">81</text>
+  </g>
+
+  <!-- Top-Right Balloon Cluster -->
+  <g transform="translate(1085, 95)" filter="url(#shadow4)">
+    <ellipse cx="0" cy="0" rx="30" ry="38" fill="url(#redBalloon4)" />
+    <ellipse cx="-8" cy="-10" rx="6" ry="12" fill="#FFFFFF" opacity="0.6" />
+    <ellipse cx="-40" cy="15" rx="26" ry="34" fill="url(#whiteBalloon4)" />
+    <ellipse cx="-46" cy="5" rx="5" ry="10" fill="#FFFFFF" opacity="0.8" />
+    <ellipse cx="-20" cy="45" rx="28" ry="36" fill="url(#goldBalloon4)" />
+    <text x="-20" y="52" font-family="'Outfit', sans-serif" font-weight="900" font-size="20" fill="#B71C1C" text-anchor="middle">81</text>
+  </g>
+
+  <!-- FESTIVE BUNTING FLAGS (Hanging Under Canopy) -->
+  <g fill="#FFFFFF" opacity="0.95">
+    <polygon points="170,195 210,198 190,245" fill="#E53935" />
+    <polygon points="230,200 270,204 250,250" fill="#FFFFFF" />
+    <polygon points="290,205 330,208 310,255" fill="#E53935" />
+    
+    <polygon points="870,208 910,205 890,255" fill="#E53935" />
+    <polygon points="930,204 970,200 950,250" fill="#FFFFFF" />
+    <polygon points="990,198 1030,195 1010,245" fill="#E53935" />
+  </g>
+
+  <!-- BOTTOM FESTIVE FOOTER BANNER -->
+  <g transform="translate(0, 1310)" filter="url(#shadow4)">
+    <path d="M 22,60 Q 600,0 1178,60 L 1178,166 L 22,166 Z" fill="#E62129" />
+    <path d="M 22,60 Q 600,0 1178,60" fill="none" stroke="#FFC107" stroke-width="5" />
+
+    <!-- Center Badge -->
+    <g transform="translate(600, 75)">
+      <rect x="-260" y="-30" width="520" height="60" rx="30" fill="#FFFFFF" stroke="#FFC107" stroke-width="3" />
+      <text x="0" y="12" font-family="'Outfit', sans-serif" font-weight="900" font-size="34" fill="#B71C1C" text-anchor="middle" letter-spacing="2">
+        KARANGJAMBE RT 05
+      </text>
+    </g>
+
+    <text x="600" y="145" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
       MERDEKA! &#8226; 17 AGUSTUS 2026
     </text>
   </g>

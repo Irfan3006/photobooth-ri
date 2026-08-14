@@ -1,95 +1,80 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500">
   <defs>
-    <!-- Red Speed Gradient -->
-    <linearGradient id="speedRed6" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Red Dynamic Gradient -->
+    <linearGradient id="speedRed6" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#FF333A" />
       <stop offset="50%" stop-color="#E62129" />
       <stop offset="100%" stop-color="#B71C1C" />
     </linearGradient>
 
-    <!-- Gold Accent Gradient -->
-    <linearGradient id="goldGlow6" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#FFA000" />
-      <stop offset="100%" stop-color="#FFD700" />
+    <!-- Gold Dynamic Gradient -->
+    <linearGradient id="goldGlow6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9C4" />
+      <stop offset="30%" stop-color="#FFD54F" />
+      <stop offset="70%" stop-color="#FFA000" />
+      <stop offset="100%" stop-color="#FF8F00" />
     </linearGradient>
 
     <!-- Drop Shadow -->
     <filter id="shadow6" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.35" />
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.32" />
     </filter>
   </defs>
 
   <!-- MODERN DYNAMIC FRAME BORDERS -->
-  <rect x="0" y="0" width="1200" height="1500" fill="none" stroke="url(#speedRed6)" stroke-width="16" />
-  <rect x="16" y="16" width="1168" height="1468" fill="none" stroke="#FFFFFF" stroke-width="6" />
+  <rect x="14" y="14" width="1172" height="1472" rx="20" fill="none" stroke="url(#speedRed6)" stroke-width="12" />
+  <rect x="24" y="24" width="1152" height="1452" rx="14" fill="none" stroke="#FFFFFF" stroke-width="4" />
 
-  <!-- TOP BANNER (Dynamic Slanted Shape) -->
-  <path d="M 16,16 L 1184,16 L 1184,180 L 700,240 L 16,180 Z" fill="url(#speedRed6)" />
-  <path d="M 16,180 L 700,240 L 1184,180" fill="none" stroke="url(#goldGlow6)" stroke-width="6" />
+  <!-- TOP BANNER (SYMMETRICAL DYNAMIC CHEVRON) -->
+  <g filter="url(#shadow6)">
+    <path d="M 24,24 L 1176,24 L 1176,190 L 600,240 L 24,190 Z" fill="url(#speedRed6)" />
+    <path d="M 24,190 L 600,240 L 1176,190" fill="none" stroke="url(#goldGlow6)" stroke-width="5" />
 
-  <!-- TOP TEXTS -->
-  <g filter="url(#shadow6)" transform="translate(480, 95)">
-    <text x="0" y="0" font-family="'Outfit', sans-serif" font-weight="900" font-size="48" fill="#FFFFFF" letter-spacing="2">
+    <!-- Center 81 Slanted Golden Crest -->
+    <g transform="translate(600, 75)">
+      <polygon points="-50,-24 40,-24 50,24 -40,24" fill="#FFFFFF" stroke="url(#goldGlow6)" stroke-width="3" />
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-weight="900" font-size="40" fill="#E62129" text-anchor="middle">81</text>
+    </g>
+
+    <!-- Centered Typography -->
+    <text x="600" y="152" font-family="'Outfit', sans-serif" font-weight="900" font-size="40" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">
       DIRGAHAYU REPUBLIK INDONESIA
     </text>
-    <text x="0" y="45" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="url(#goldGlow6)" letter-spacing="4">
-      BANGKIT BERSAMA, MAJU JAYA!
+    <text x="600" y="190" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="url(#goldGlow6)" text-anchor="middle" letter-spacing="5">
+      BANGKIT BERSAMA &#8226; MAJU JAYA
     </text>
   </g>
 
-  <!-- Huge Dynamic 81 at Top Left (Slanted Badge) -->
-  <g transform="translate(160, 120) rotate(-10)" filter="url(#shadow6)">
-    <rect x="-85" y="-55" width="170" height="110" rx="20" fill="#FFFFFF" stroke="url(#goldGlow6)" stroke-width="6" />
-    <text x="0" y="24" font-family="'Outfit', sans-serif" font-weight="900" font-size="78" fill="#E62129" text-anchor="middle">81</text>
+  <!-- SIDE DYNAMIC SPEED CUTS (CLEAN & NON-OBTRUSIVE) -->
+  <g fill="url(#speedRed6)" opacity="0.85">
+    <polygon points="24,520 60,535 60,570 24,585" />
+    <polygon points="24,620 50,630 50,655 24,665" fill="url(#goldGlow6)" />
+
+    <polygon points="1176,520 1140,535 1140,570 1176,585" />
+    <polygon points="1176,620 1150,630 1150,655 1176,665" fill="url(#goldGlow6)" />
   </g>
 
-  <!-- BOTTOM BANNER (Slanted and Dynamic) -->
-  <g transform="translate(0, 1260)" filter="url(#shadow6)">
-    <path d="M 16,60 L 500,0 L 1184,60 L 1184,224 L 16,224 Z" fill="url(#speedRed6)" />
-    <!-- Gold accent stripe -->
-    <path d="M 16,60 L 500,0 L 1184,60" fill="none" stroke="url(#goldGlow6)" stroke-width="6" />
+  <!-- BOTTOM BANNER (SYMMETRICAL DYNAMIC CHEVRON) -->
+  <g filter="url(#shadow6)">
+    <path d="M 24,1300 L 600,1250 L 1176,1300 L 1176,1476 L 24,1476 Z" fill="url(#speedRed6)" />
+    <path d="M 24,1300 L 600,1250 L 1176,1300" fill="none" stroke="url(#goldGlow6)" stroke-width="5" />
 
-    <!-- Center Giant MERDEKA! -->
-    <text x="600" y="130" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="72" fill="#FFFFFF" text-anchor="middle" letter-spacing="8">
+    <!-- Center Giant "MERDEKA!" -->
+    <text x="600" y="1350" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="64" fill="#FFFFFF" text-anchor="middle" letter-spacing="8">
       MERDEKA!
     </text>
     
-    <!-- RT 05 and Date Info -->
-    <text x="140" y="180" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="url(#goldGlow6)" letter-spacing="2">
-      KARANGJAMBE RT 05
+    <!-- RT 05 Pill Badge -->
+    <g transform="translate(600, 1400)">
+      <rect x="-220" y="-18" width="440" height="36" rx="18" fill="#FFFFFF" stroke="url(#goldGlow6)" stroke-width="2" />
+      <text x="0" y="8" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#E62129" text-anchor="middle" letter-spacing="3">
+        KARANGJAMBE RT 05
+      </text>
+    </g>
+
+    <!-- Bottom Date Info -->
+    <text x="600" y="1452" font-family="'Outfit', sans-serif" font-weight="800" font-size="20" fill="url(#goldGlow6)" text-anchor="middle" letter-spacing="4">
+      17 AGUSTUS 1945 - 17 AGUSTUS 2026
     </text>
-    <text x="1060" y="180" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="#FFFFFF" text-anchor="end" letter-spacing="2">
-      17 AGUSTUS 2026
-    </text>
-  </g>
-
-  <!-- DYNAMIC SPEED STRIPES (Sides) -->
-  <g fill="url(#speedRed6)" opacity="0.85">
-    <polygon points="16,350 70,360 70,390 16,420" />
-    <polygon points="16,500 90,515 90,545 16,580" fill="#FFC107" />
-    <polygon points="16,700 60,710 60,735 16,760" />
-    
-    <polygon points="1184,350 1130,360 1130,390 1184,420" />
-    <polygon points="1184,500 1110,515 1110,545 1184,580" fill="#FFC107" />
-    <polygon points="1184,700 1140,710 1140,735 1184,760" />
-  </g>
-
-  <!-- BAMBOO SPEAR AND PATRIOTIC FLAGS -->
-  <!-- Left Flag Spear -->
-  <g transform="translate(60, 1060)" filter="url(#shadow6)">
-    <line x1="20" y1="0" x2="20" y2="240" stroke="#795548" stroke-width="8" stroke-linecap="round" />
-    <!-- Spear point -->
-    <polygon points="20,-20 12,10 28,10" fill="#FFE082" stroke="#5D4037" stroke-width="2" />
-    <!-- Attached Red White Flag -->
-    <path d="M 20,20 Q 80,0 140,30 L 140,90 Q 80,60 20,80 Z" fill="#E62129" />
-    <path d="M 20,80 Q 80,60 140,90 L 140,150 Q 80,120 20,140 Z" fill="#FFFFFF" />
-  </g>
-
-  <!-- Right Flag Spear -->
-  <g transform="translate(1000, 1060)" filter="url(#shadow6)">
-    <line x1="140" y1="0" x2="140" y2="240" stroke="#795548" stroke-width="8" stroke-linecap="round" />
-    <polygon points="140,-20 132,10 148,10" fill="#FFE082" stroke="#5D4037" stroke-width="2" />
-    <path d="M 140,20 Q 80,0 20,30 L 20,90 Q 80,60 140,80 Z" fill="#E62129" />
-    <path d="M 140,80 Q 80,60 20,90 L 20,150 Q 80,120 140,140 Z" fill="#FFFFFF" />
   </g>
 </svg>
