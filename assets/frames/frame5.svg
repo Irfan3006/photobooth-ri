@@ -32,7 +32,7 @@
   <rect x="0" y="0" width="1200" height="1500" fill="none" stroke="url(#goldGrad5)" stroke-width="16" />
   <rect x="16" y="16" width="1168" height="1468" fill="none" stroke="url(#deepRed5)" stroke-width="12" />
 
-  <!-- LEFT & RIGHT BATIK COLUMNS (W=110px) -->
+  <!-- LEFT AND RIGHT BATIK COLUMNS (W=110px) -->
   <rect x="28" y="28" width="110" height="1444" fill="url(#deepRed5)" />
   <rect x="28" y="28" width="110" height="1444" fill="url(#batikParang5)" />
   <line x1="138" y1="28" x2="138" y2="1472" stroke="url(#goldGrad5)" stroke-width="4" />
@@ -48,7 +48,7 @@
     DIRGAHAYU REPUBLIK INDONESIA
   </text>
   <text x="600" y="160" font-family="'Outfit', sans-serif" font-weight="800" font-size="30" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
-    HUT RI KE-81 &bull; 17 AGUSTUS 2026
+    HUT RI KE-81 &#8226; 17 AGUSTUS 2026
   </text>
 
   <!-- BOTTOM BANNER BLOCK -->

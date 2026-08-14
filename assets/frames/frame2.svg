@@ -30,7 +30,7 @@
   <rect x="0" y="0" width="1200" height="220" fill="url(#darkRedGrad2)" />
   <rect x="0" y="220" width="1200" height="12" fill="#FFFFFF" />
   
-  <!-- Left & Right Vertical Pillars -->
+  <!-- Left and Right Vertical Pillars -->
   <rect x="0" y="232" width="36" height="1048" fill="#4A0E17" />
   <rect x="1164" y="232" width="36" height="1048" fill="#4A0E17" />
   <rect x="36" y="232" width="8" height="1048" fill="#FFFFFF" />
@@ -48,7 +48,7 @@
       HUT RI KE-81
     </text>
     <text x="600" y="195" font-family="'Outfit', sans-serif" font-weight="700" font-size="22" fill="#FFFFFF" text-anchor="middle" letter-spacing="6">
-      17 AGUSTUS 1945 &bull; 17 AGUSTUS 2026
+      17 AGUSTUS 1945 &#8226; 17 AGUSTUS 2026
     </text>
   </g>
 
@@ -73,7 +73,7 @@
     </g>
   </g>
 
-  <!-- Center-Right: Big Dynamic "MERDEKA!" -->
+  <!-- Center-Right: Big Dynamic MERDEKA! -->
   <g transform="translate(700, 1375)">
     <!-- Red Paint Brush Splash behind Merdeka -->
     <path d="M -230,-45 Q -100,-75 60,-52 Q 220,-30 270,-10 Q 160,45 -20,25 Q -160,55 -230,-45 Z" fill="url(#darkRedGrad2)" filter="url(#shadow2)" />

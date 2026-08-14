@@ -37,7 +37,7 @@
     </text>
   </g>
 
-  <!-- Huge Dynamic "81" at Top Left (Slanted Badge) -->
+  <!-- Huge Dynamic 81 at Top Left (Slanted Badge) -->
   <g transform="translate(160, 120) rotate(-10)" filter="url(#shadow6)">
     <rect x="-85" y="-55" width="170" height="110" rx="20" fill="#FFFFFF" stroke="url(#goldGlow6)" stroke-width="6" />
     <text x="0" y="24" font-family="'Outfit', sans-serif" font-weight="900" font-size="78" fill="#E62129" text-anchor="middle">81</text>
@@ -49,7 +49,7 @@
     <!-- Gold accent stripe -->
     <path d="M 16,60 L 500,0 L 1184,60" fill="none" stroke="url(#goldGlow6)" stroke-width="6" />
 
-    <!-- Center Giant "MERDEKA!" -->
+    <!-- Center Giant MERDEKA! -->
     <text x="600" y="130" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="72" fill="#FFFFFF" text-anchor="middle" letter-spacing="8">
       MERDEKA!
     </text>
@@ -74,7 +74,7 @@
     <polygon points="1184,700 1140,710 1140,735 1184,760" />
   </g>
 
-  <!-- BAMBOO SPEAR & PATRIOTIC FLAGS -->
+  <!-- BAMBOO SPEAR AND PATRIOTIC FLAGS -->
   <!-- Left Flag Spear -->
   <g transform="translate(60, 1060)" filter="url(#shadow6)">
     <line x1="20" y1="0" x2="20" y2="240" stroke="#795548" stroke-width="8" stroke-linecap="round" />

@@ -74,8 +74,9 @@ photo-booth/
 │
 ├── assets/
 │   ├── og-preview.jpg  # Open Graph and Twitter Card social preview banner
-│   └── frames/         # High-resolution vector SVG frame assets
-│       ├── frame1.svg  # Design 1: Dirgahayu RI 81 Modern Patriotic
+│   └── frames/         # High-resolution graphic and vector SVG frame assets
+│       ├── background_foto_agustusan.png  # Design 1 (Primary): Dirgahayu RI 81 Official Graphic
+│       ├── frame1.svg  # Design 1 Alternate: Dirgahayu RI 81 Vector
 │       ├── frame2.svg  # Design 2: Proklamasi 1945 Historical Tribute
 │       ├── frame3.svg  # Design 3: Garuda Indonesia Royal Gold
 │       ├── frame4.svg  # Design 4: Merah Putih Festive Celebration
