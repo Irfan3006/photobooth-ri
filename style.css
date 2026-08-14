@@ -1,0 +1,993 @@
+/* style.css - Photo Booth HUT RI Ke-81 Karangjambe RT 05 */
+
+/* ═══════════════════════════════════════════════════════════
+   0. CUSTOM PROPERTIES
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --primary-color:   #E62129;
+  --primary-dark:    #C62828;
+  --primary-light:   #FF5252;
+  --accent-color:    #FFC107;
+  --text-dark:       #212121;
+  --text-light:      #757575;
+  --success-color:   #4CAF50;
+  --warning-color:   #FF9800;
+  --border-radius:   20px;
+  --box-shadow:      0 10px 30px rgba(0, 0, 0, 0.08);
+  --glass-bg:        rgba(255, 255, 255, 0.85);
+  --glass-border:    rgba(255, 255, 255, 0.5);
+  --transition:      all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   1. RESET & BASE
+   ═══════════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  color: var(--text-dark);
+  background-color: #FAF9F6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   2. BACKGROUND DECORATION
+   ═══════════════════════════════════════════════════════════ */
+.bg-decorations {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.decor-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.circle-red {
+  top: -10%; right: -10%;
+  width: 40vw; height: 40vw;
+  background-color: var(--primary-color);
+}
+
+.circle-white {
+  bottom: -10%; left: -10%;
+  width: 50vw; height: 50vw;
+  background-color: #FFFFFF;
+  filter: blur(100px);
+}
+
+.decor-wave {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 15vh;
+  background: linear-gradient(to top, rgba(230,33,41,0.05), transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   3. APP CONTAINER & VIEW SECTIONS
+   ═══════════════════════════════════════════════════════════ */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;   /* changed from flex to flex-column */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Each section: hidden by default */
+.view-section {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  /* not center: prevents overflow on small screens */
+  padding: 10px 0 30px;
+}
+
+.view-section.active {
+  display: flex;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Landing page still centred */
+#view-landing.active {
+  justify-content: center;
+  min-height: calc(100vh - 40px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   4. GLASSMORPHISM CARD
+   ═══════════════════════════════════════════════════════════ */
+.card-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   5. LANDING PAGE
+   ═══════════════════════════════════════════════════════════ */
+.flag-badge {
+  display: inline-flex;
+  width: 70px; height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.flag-red   { flex: 1; background-color: var(--primary-color); }
+.flag-white { flex: 1; background-color: #FFFFFF; }
+
+.sub-event-title {
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+}
+
+.main-event-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 15px;
+  color: #1A1A1A;
+}
+
+.main-event-title .highlight {
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+}
+
+.main-event-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 0;
+  width: 100%; height: 6px;
+  background-color: rgba(230,33,41,0.15);
+  border-radius: 3px;
+}
+
+.location-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.tagline {
+  color: var(--text-light);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.landing-footer {
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   6. BUTTONS
+   ═══════════════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  border-radius: 50px;
+  outline: none;
+  text-decoration: none;
+  min-height: 44px; /* touch-friendly */
+}
+
+.btn-icon { margin-right: 10px; font-size: 1.2em; }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+  color: #FFF;
+  box-shadow: 0 8px 24px rgba(230,33,41,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(230,33,41,0.45);
+}
+.btn-primary:active { transform: translateY(-1px); }
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #333;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.btn-secondary:hover {
+  background-color: #F5F5F5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #66BB6A 0%, #4CAF50 100%);
+  color: #FFF;
+  box-shadow: 0 8px 24px rgba(76,175,80,0.3);
+}
+.btn-success:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(76,175,80,0.45);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #FFA726 0%, #FB8C00 100%);
+  color: #FFF;
+  box-shadow: 0 8px 24px rgba(251,140,0,0.3);
+}
+.btn-warning:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(251,140,0,0.45);
+}
+
+.btn-large { padding: 18px 40px; font-size: 1.15rem; letter-spacing: 1px; }
+.btn-glow  { animation: pulse-glow 2s infinite; }
+
+.btn-circle {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.btn-back {
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+}
+.btn-back:hover {
+  transform: scale(1.08);
+  background-color: var(--primary-color);
+  color: #FFF;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   7. SECTION HEADER
+   ═══════════════════════════════════════════════════════════ */
+.section-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.header-text { text-align: left; }
+.header-text h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin-bottom: 4px;
+}
+.header-text p { color: var(--text-light); font-size: 1rem; }
+
+/* ═══════════════════════════════════════════════════════════
+   8. FRAME GRID & SELECTION
+   ═══════════════════════════════════════════════════════════ */
+.frame-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.frame-card {
+  background-color: #FFFFFF;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.frame-preview-container {
+  position: relative;
+  width: 100%;
+  background-color: #EDEDED;
+  overflow: hidden;
+}
+
+/* ── Frame thumbnail ──────────────────────────────────────────────────────────
+   SVG intrinsic size is 1200×1500 (4:5). With width:100% the browser computes
+   height from the intrinsic ratio → always fills 4:5. No absolute positioning
+   needed. object-fit:contain shows the full frame without clipping.            */
+.frame-thumbnail {
+  display: block;
+  width: 100%;
+  /* aspect-ratio reinforces 4:5 even for browsers that don't read SVG size */
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  z-index: 2;
+  background-color: #EDEDED;
+}
+
+/* "CONTOH FOTO" placeholder text behind thumbnail */
+.frame-preview-container::before {
+  content: 'CONTOH FOTO';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #AAA;
+  letter-spacing: 2px;
+  z-index: 1;
+}
+
+/* Error fallback */
+.frame-error-msg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #B71C1C;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px;
+  z-index: 4;
+}
+.frame-error-msg i { font-size: 1.8rem; }
+
+/* Hover glow overlay */
+.frame-overlay-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.frame-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(230,33,41,0.12);
+  border-color: rgba(230,33,41,0.2);
+}
+.frame-card:hover .frame-overlay-glow { opacity: 1; }
+
+/* Selected state */
+.frame-card.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(230,33,41,0.25), 0 15px 35px rgba(230,33,41,0.15);
+}
+.frame-card.selected .btn-select-frame { background: var(--primary-dark); }
+
+/* Frame info (below thumbnail) */
+.frame-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #FFFFFF;
+}
+
+.frame-text-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.frame-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.3;
+}
+
+.btn-select-frame {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 0.85rem;
+  background: var(--primary-color);
+  color: #FFF;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(230,33,41,0.15);
+  transition: var(--transition);
+}
+.frame-card:hover .btn-select-frame {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(230,33,41,0.3);
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.badge-red   { background-color: rgba(230,33,41,0.1);   color: var(--primary-color); }
+.badge-gold  { background-color: rgba(255,193,7,0.15);   color: #B78103; }
+.badge-green { background-color: rgba(76,175,80,0.1);   color: var(--success-color); }
+.badge-blue  { background-color: rgba(33,150,243,0.1);  color: #1E88E5; }
+
+/* ═══════════════════════════════════════════════════════════
+   9. CAMERA PAGE
+   ═══════════════════════════════════════════════════════════ */
+.booth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 520px;   /* narrower so camera isn't too tall on desktop */
+}
+
+/* ── Camera Wrapper ───────────────────────────────────────────────────────────
+   Uses padding-top:125% to create a 4:5 container that works on ALL browsers
+   (iOS Safari, Android WebView, Chrome, Edge). All child elements are
+   position:absolute so they fill this box exactly.                             */
+.camera-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 125%;            /* 5/4 = 125% → 4:5 portrait ratio */
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: #1A1A1A;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+/* Video: absolute, fills entire wrapper */
+.camera-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+/* Mirror only when front-camera (class toggled by JS) */
+.camera-video.mirrored { transform: scaleX(-1); }
+
+/* ── Frame Overlay on Camera ─────────────────────────────────────────────────
+   CRITICAL: must use object-fit:fill (not contain/cover) so the frame
+   stretches to exactly 100%×100% of the camera wrapper regardless of the
+   SVG's intrinsic dimensions. 'contain' would add letterbox bars.             */
+.camera-frame-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.camera-frame-overlay img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;    /* ← KEY: stretch to fill, no letterbox */
+}
+
+/* Camera error message */
+.camera-error-message {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background-color: #263238;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  gap: 12px;
+}
+
+.error-icon { font-size: 2.5rem; color: #FF5252; }
+.error-sub  { color: #B0BEC5; font-size: 0.9rem; }
+
+/* Camera loader overlay */
+.camera-loader-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(26,26,26,0.9);
+  color: #FFF;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Fixed spinner (was 'stroke' which is invalid SVG attr in CSS) */
+.spinner {
+  width: 40px; height: 40px;
+  border: 4px solid rgba(255,255,255,0.15);   /* ← was 'stroke', now 'solid' */
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Camera controls */
+.booth-controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.booth-button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.divider-text {
+  display: flex;
+  align-items: center;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+.divider-text::before,
+.divider-text::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.divider-text span { padding: 0 15px; }
+
+.hidden-input { display: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   10. COUNTDOWN OVERLAY
+   ═══════════════════════════════════════════════════════════ */
+.countdown-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.75);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-circle {
+  width: 160px; height: 160px;
+  background-color: var(--primary-color);
+  border: 6px solid #FFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  animation: pulse 1s infinite;
+}
+
+#countdown-number {
+  color: #FFF;
+  font-size: 6rem;
+  font-weight: 900;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   11. RESULT VIEW
+   ═══════════════════════════════════════════════════════════ */
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ── Result Preview ───────────────────────────────────────────────────────────
+   width:100%, height:auto → the img drives its own height from the 4:5 canvas
+   output. Never use position:absolute here — it would collapse height to 0.   */
+.result-preview-wrapper {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 24px auto;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: #1A1A1A;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+
+.result-photo-img {
+  display: block;
+  width: 100%;
+  height: auto;       /* natural 4:5 from the canvas data URL */
+}
+
+.result-controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.button-group .btn { padding: 15px 20px; }
+
+/* ═══════════════════════════════════════════════════════════
+   12. UTILITY
+   ═══════════════════════════════════════════════════════════ */
+.hidden { display: none !important; }
+
+.container {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   13. ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%   { box-shadow: 0 0 0 0   rgba(230,33,41,0.4); }
+  70%  { box-shadow: 0 0 0 15px rgba(230,33,41,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(230,33,41,0);   }
+}
+
+@keyframes pulse {
+  0%   { transform: scale(0.9);  }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(0.9);  }
+}
+
+.animate-fade-in  { animation: fadeIn   0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
+.animate-slide-down { animation: slideDown 0.5s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   14. RESPONSIVE — TABLET ≤768px
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  .app-container {
+    padding: 12px;
+    min-height: 100vh;
+    /* on mobile top-align so camera + controls don't overflow */
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  #view-landing.active {
+    min-height: calc(100dvh - 24px);
+    justify-content: center;
+  }
+
+  .card-glass {
+    padding: 28px 18px;
+  }
+
+  .main-event-title { font-size: 2.1rem; }
+  .location-title   { font-size: 1.25rem; margin-bottom: 18px; }
+  .tagline          { font-size: 0.95rem; margin-bottom: 28px; }
+
+  .btn-large { padding: 15px 24px; font-size: 1rem; }
+
+  /* 2 columns on tablet / large phone */
+  .frame-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .frame-info   { padding: 12px; gap: 10px; }
+  .frame-info h3 { font-size: 0.88rem; }
+  .badge        { padding: 2px 8px; font-size: 0.65rem; }
+  .btn-select-frame { padding: 9px 12px; font-size: 0.8rem; }
+
+  /* Camera buttons: side-by-side still OK on tablet, stacked on phone below */
+  .booth-container { max-width: 100%; }
+
+  .section-header { margin-bottom: 14px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   15. RESPONSIVE — PHONE ≤480px
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  .frame-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  .header-text h2 { font-size: 1.35rem; }
+  .header-text p  { font-size: 0.85rem; }
+
+  .frame-info { padding: 10px; gap: 8px; }
+  .frame-info h3 { font-size: 0.82rem; }
+
+  /* Stack the Ambil Foto / Ganti Kamera buttons vertically */
+  .booth-button-group { grid-template-columns: 1fr; }
+
+  /* Camera wrapper: full-width portrait on small phones */
+  .booth-container { padding: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   16. RESPONSIVE — VERY SMALL ≤360px
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 360px) {
+  .frame-grid { grid-template-columns: 1fr; }
+  .main-event-title { font-size: 1.8rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   17. MERAH-PUTIH THEME DEVELOPER COPYRIGHT & POPUP MODAL
+   ═══════════════════════════════════════════════════════════ */
+.app-global-footer {
+  width: 100%;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #B71C1C 0%, #E62129 100%);
+  border-top: 4px solid #FFFFFF;
+  margin-top: 40px;
+  text-align: center;
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 -6px 25px rgba(230, 33, 41, 0.35);
+}
+
+.developer-credit-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.copyright-main {
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+}
+
+.developer-link-line {
+  font-size: 1.05rem;
+  color: #FFFFFF;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dev-link-glow {
+  color: #E62129;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1.15rem;
+  padding: 4px 14px;
+  background: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dev-link-glow:hover {
+  color: #FFFFFF;
+  background: #111111;
+  border-color: #111111;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-dev-badge {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1.5px solid #FFFFFF;
+  color: #FFFFFF;
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+
+.btn-dev-badge:hover {
+  background: #FFFFFF;
+  color: #B71C1C;
+  transform: scale(1.05);
+}
+
+/* ── Developer Info Popup Modal (Merah-Putih Glassmorphism) ──────────────── */
+.developer-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(183, 28, 28, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.developer-modal-card {
+  position: relative;
+  background: linear-gradient(145deg, #FFFFFF 0%, #FFF5F5 100%);
+  border: 3px solid #E62129;
+  border-radius: 28px;
+  padding: 38px 28px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(183, 28, 28, 0.4), 0 0 30px rgba(255, 255, 255, 0.5);
+  animation: fadeIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: rgba(230, 33, 41, 0.1);
+  border: none;
+  color: #B71C1C;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close-icon:hover {
+  background: #E62129;
+  color: #FFFFFF;
+}
+
+.dev-badge-icon {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 16px auto;
+  background: linear-gradient(135deg, #E62129, #B71C1C);
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(230, 33, 41, 0.4);
+}
+
+.dev-modal-title {
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: #B71C1C;
+  margin-bottom: 4px;
+}
+
+.dev-modal-subtitle {
+  font-size: 1rem;
+  color: #E62129;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.dev-modal-body {
+  font-size: 0.98rem;
+  color: #2D3748;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.dev-website-box {
+  background: #FFFFFF;
+  border: 2px stroke #E62129;
+  border: 2px dashed rgba(230, 33, 41, 0.3);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 4px 15px rgba(230, 33, 41, 0.08);
+}
+
+.box-label {
+  font-size: 0.82rem;
+  color: #718096;
+  font-weight: 600;
+}
+
+.dev-website-link {
+  color: #E62129;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.2s ease;
+}
+
+.dev-website-link:hover {
+  color: #B71C1C;
+  text-decoration: underline;
+}
+
+.dev-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Booth HUT RI Ke-81 - Karangjambe RT 05</title>
+  <!-- Google Fonts for Modern, Elegant, and Cheerful typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Outfit:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Decorative Merah Putih Elements -->
+  <div class="bg-decorations">
+    <div class="decor-circle circle-red"></div>
+    <div class="decor-circle circle-white"></div>
+    <div class="decor-wave"></div>
+  </div>
+
+  <main class="app-container">
+    
+    <!-- 1. LANDING PAGE -->
+    <section id="view-landing" class="view-section active">
+      <div class="landing-card card-glass animate-fade-in">
+        <div class="flag-badge">
+          <span class="flag-red"></span>
+          <span class="flag-white"></span>
+        </div>
+        <h2 class="sub-event-title">17 AGUSTUS 2026</h2>
+        <h1 class="main-event-title text-gradient">
+          DIRGAHAYU<br>
+          <span class="highlight">REPUBLIK INDONESIA</span><br>
+          KE-81
+        </h1>
+        <h3 class="location-title">KARANGJAMBE RT 05</h3>
+        
+        <p class="tagline">"Rayakan kemerdekaan dengan senyuman dan abadikan momennya!"</p>
+
+        <button id="btn-start" class="btn btn-primary btn-large btn-glow">
+          <i class="fa-solid fa-camera-retro btn-icon"></i> MULAI PHOTO BOOTH
+        </button>
+      </div>
+      
+      <!-- Small Footer Decoration -->
+      <footer class="landing-footer">
+        <p>&copy; 2026 Karangjambe RT 05. Hubungi Panitia jika ada kendala.</p>
+      </footer>
+    </section>
+
+    <!-- 2. SELECT FRAME PAGE -->
+    <section id="view-select-frame" class="view-section">
+      <div class="section-header animate-slide-down">
+        <button class="btn btn-back btn-circle" data-target="view-landing">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="header-text">
+          <h2>Pilih Desain Foto</h2>
+          <p>Pilih bingkai bertema kemerdekaan yang paling kamu sukai</p>
+        </div>
+      </div>
+
+      <div class="frame-grid container animate-fade-in">
+        <!-- Frame 1 -->
+        <div class="frame-card" data-frame="1" data-src="assets/frames/background_foto_agustusan.png">
+          <div class="frame-preview-container">
+            <img src="assets/frames/background_foto_agustusan.png" alt="Dirgahayu RI 81" class="frame-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+            <div class="frame-error-msg hidden">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p>Frame tidak dapat dimuat</p>
+            </div>
+            <div class="frame-overlay-glow"></div>
+          </div>
+          <div class="frame-info">
+            <div class="frame-text-group">
+              <h3>Dirgahayu RI 81</h3>
+              <span class="badge badge-red">Desain 1</span>
+            </div>
+            <button class="btn btn-select-frame">Gunakan Desain Ini</button>
+          </div>
+        </div>
+
+        <!-- Frame 2 -->
+        <div class="frame-card" data-frame="2" data-src="assets/frames/frame2.svg">
+          <div class="frame-preview-container">
+            <img src="assets/frames/frame2.svg" alt="Proklamasi 1945" class="frame-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+            <div class="frame-error-msg hidden">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p>Frame tidak dapat dimuat</p>
+            </div>
+            <div class="frame-overlay-glow"></div>
+          </div>
+          <div class="frame-info">
+            <div class="frame-text-group">
+              <h3>Proklamasi 1945</h3>
+              <span class="badge badge-red">Desain 2</span>
+            </div>
+            <button class="btn btn-select-frame">Gunakan Desain Ini</button>
+          </div>
+        </div>
+
+        <!-- Frame 3 -->
+        <div class="frame-card" data-frame="3" data-src="assets/frames/frame3.svg">
+          <div class="frame-preview-container">
+            <img src="assets/frames/frame3.svg" alt="Garuda Indonesia" class="frame-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+            <div class="frame-error-msg hidden">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p>Frame tidak dapat dimuat</p>
+            </div>
+            <div class="frame-overlay-glow"></div>
+          </div>
+          <div class="frame-info">
+            <div class="frame-text-group">
+              <h3>Garuda Indonesia</h3>
+              <span class="badge badge-gold">Desain 3</span>
+            </div>
+            <button class="btn btn-select-frame">Gunakan Desain Ini</button>
+          </div>
+        </div>
+
+        <!-- Frame 4 -->
+        <div class="frame-card" data-frame="4" data-src="assets/frames/frame4.svg">
+          <div class="frame-preview-container">
+            <img src="assets/frames/frame4.svg" alt="Merah Putih Festive" class="frame-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+            <div class="frame-error-msg hidden">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p>Frame tidak dapat dimuat</p>
+            </div>
+            <div class="frame-overlay-glow"></div>
+          </div>
+          <div class="frame-info">
+            <div class="frame-text-group">
+              <h3>Merah Putih Festive</h3>
+              <span class="badge badge-green">Desain 4</span>
+            </div>
+            <button class="btn btn-select-frame">Gunakan Desain Ini</button>
+          </div>
+        </div>
+
+        <!-- Frame 5 -->
+        <div class="frame-card" data-frame="5" data-src="assets/frames/frame5.svg">
+          <div class="frame-preview-container">
+            <img src="assets/frames/frame5.svg" alt="Batik Nusantara" class="frame-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+            <div class="frame-error-msg hidden">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p>Frame tidak dapat dimuat</p>
+            </div>
+            <div class="frame-overlay-glow"></div>
+          </div>
+          <div class="frame-info">
+            <div class="frame-text-group">
+              <h3>Batik Nusantara</h3>
+              <span class="badge badge-gold">Desain 5</span>
+            </div>
+            <button class="btn btn-select-frame">Gunakan Desain Ini</button>
+          </div>
+        </div>
+
+        <!-- Frame 6 -->
+        <div class="frame-card" data-frame="6" data-src="assets/frames/frame6.svg">
+          <div class="frame-preview-container">
+            <img src="assets/frames/frame6.svg" alt="Semangat Kemerdekaan" class="frame-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+            <div class="frame-error-msg hidden">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p>Frame tidak dapat dimuat</p>
+            </div>
+            <div class="frame-overlay-glow"></div>
+          </div>
+          <div class="frame-info">
+            <div class="frame-text-group">
+              <h3>Semangat Kemerdekaan</h3>
+              <span class="badge badge-blue">Desain 6</span>
+            </div>
+            <button class="btn btn-select-frame">Gunakan Desain Ini</button>
+          </div>
+        </div>
+
+        <!-- Frame 7 -->
+        <div class="frame-card" data-frame="7" data-src="assets/frames/frame1.svg">
+          <div class="frame-preview-container">
+            <img src="assets/frames/frame1.svg" alt="Pahlawan Kemerdekaan" class="frame-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+            <div class="frame-error-msg hidden">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p>Frame tidak dapat dimuat</p>
+            </div>
+            <div class="frame-overlay-glow"></div>
+          </div>
+          <div class="frame-info">
+            <div class="frame-text-group">
+              <h3>Pahlawan Kemerdekaan</h3>
+              <span class="badge badge-red">Desain 7</span>
+            </div>
+            <button class="btn btn-select-frame">Gunakan Desain Ini</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CAMERA PAGE -->
+    <section id="view-camera" class="view-section">
+      <div class="section-header">
+        <button class="btn btn-back btn-circle" data-target="view-select-frame">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="header-text">
+          <h2>Photo Booth</h2>
+          <p>Posisikan dirimu di tengah bingkai dan klik tombol Ambil Foto</p>
+        </div>
+      </div>
+
+      <div class="booth-container container">
+        <!-- Camera Area -->
+        <div class="camera-wrapper">
+          <!-- Web Cam Video -->
+          <video id="webcam" autoplay playsinline muted class="camera-video"></video>
+          
+          <!-- Static Frame Overlay (For posing guide) -->
+          <div class="camera-frame-overlay">
+            <img id="active-frame-overlay" src="" alt="Selected Frame Overlay">
+          </div>
+          
+          <!-- Camera Error/Fallback Msg -->
+          <div id="camera-error" class="camera-error-message hidden">
+            <i class="fa-solid fa-circle-exclamation error-icon"></i>
+            <p>Silakan izinkan akses kamera pada browser untuk menggunakan Photo Booth.</p>
+            <p class="error-sub">Atau kamu bisa mengunggah foto langsung dari galeri di bawah ini.</p>
+          </div>
+
+          <!-- Loader while camera starts -->
+          <div id="camera-loader" class="camera-loader-overlay">
+            <div class="spinner"></div>
+            <p>Menyiapkan kamera...</p>
+          </div>
+        </div>
+
+        <!-- Camera Controls -->
+        <div class="booth-controls">
+          <div class="booth-button-group">
+            <button id="btn-capture" class="btn btn-primary btn-large btn-glow">
+              <i class="fa-solid fa-camera btn-icon"></i> AMBIL FOTO
+            </button>
+            <button id="btn-toggle-camera" class="btn btn-secondary btn-large">
+              <i class="fa-solid fa-arrows-rotate btn-icon"></i> GANTI KAMERA
+            </button>
+          </div>
+          
+          <div class="divider-text">
+            <span>atau</span>
+          </div>
+
+          <!-- File Upload Fallback (Styled button) -->
+          <label for="file-upload" class="btn btn-secondary">
+            <i class="fa-solid fa-camera btn-icon"></i> Ambil Foto / Upload dari HP
+          </label>
+          <input type="file" id="file-upload" accept="image/*" class="hidden-input">
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. RESULT PAGE -->
+    <section id="view-result" class="view-section">
+      <div class="section-header">
+        <div class="header-text">
+          <h2>Hasil Foto Kamu</h2>
+          <p>Keren sekali! Kamu bisa langsung mengunduh hasil fotomu ke HP atau laptop.</p>
+        </div>
+      </div>
+
+      <div class="result-container container">
+        <!-- Result Preview Area -->
+        <div class="result-preview-wrapper">
+          <!-- Final Composite Canvas Output Image -->
+          <img id="result-photo" class="result-photo-img" src="" alt="Hasil Photo Booth">
+        </div>
+
+        <!-- Result Controls -->
+        <div class="result-controls">
+          <button id="btn-download" class="btn btn-success btn-large btn-glow">
+            <i class="fa-solid fa-download btn-icon"></i> SIMPAN FOTO
+          </button>
+
+          <div class="button-group">
+            <button id="btn-retake" class="btn btn-warning">
+              <i class="fa-solid fa-rotate-left btn-icon"></i> FOTO ULANG
+            </button>
+            <button id="btn-change-frame" class="btn btn-secondary">
+              <i class="fa-solid fa-palette btn-icon"></i> GANTI DESAIN
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 5. COUNTDOWN OVERLAY -->
+  <div id="countdown-overlay" class="countdown-overlay hidden">
+    <div class="countdown-circle">
+      <span id="countdown-number">3</span>
+    </div>
+  </div>
+
+  <!-- Global Prominent Developer Copyright Footer -->
+  <footer class="app-global-footer">
+    <div class="developer-credit-box">
+      <p class="copyright-main">
+        &copy; 2026 <strong>Karangjambe RT 05</strong> &bull; Photo Booth Kemerdekaan
+      </p>
+      <p class="developer-link-line">
+        <i class="fa-solid fa-code btn-icon"></i> Developed & Designed by 
+        <a href="http://irfansyarifudin.my.id/" target="_blank" rel="noopener noreferrer" class="dev-link-glow">
+          <i class="fa-solid fa-globe"></i> Irfan Syarifudin
+        </a>
+      </p>
+      <button id="btn-developer-modal" class="btn-dev-badge">
+        <i class="fa-solid fa-user-gear"></i> Info Developer
+      </button>
+    </div>
+  </footer>
+
+  <!-- 6. DEVELOPER INFO POPUP MODAL -->
+  <div id="developer-modal" class="developer-modal-overlay hidden">
+    <div class="developer-modal-card">
+      <button id="btn-close-dev-modal" class="modal-close-icon">&times;</button>
+      <div class="dev-badge-icon">
+        <i class="fa-solid fa-laptop-code"></i>
+      </div>
+      <h2 class="dev-modal-title">Irfan Syarifudin</h2>
+      <p class="dev-modal-subtitle">Web Developer & Designer</p>
+      
+      <div class="dev-modal-body">
+        <p>Aplikasi Photo Booth HUT RI Ke-81 ini dikembangkan oleh <strong>Irfan Syarifudin</strong> untuk menyemarakkan kegiatan Kemerdekaan Karangjambe RT 05.</p>
+        
+        <div class="dev-website-box">
+          <span class="box-label">Website Portfolio Resmi:</span>
+          <a href="http://irfansyarifudin.my.id/" target="_blank" rel="noopener noreferrer" class="dev-website-link">
+            <i class="fa-solid fa-up-right-from-square"></i> http://irfansyarifudin.my.id/
+          </a>
+        </div>
+      </div>
+
+      <div class="dev-modal-actions">
+        <a href="http://irfansyarifudin.my.id/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large btn-glow">
+          <i class="fa-solid fa-globe btn-icon"></i> Buka Website Irfan Syarifudin
+        </a>
+        <button id="btn-modal-close-action" class="btn btn-secondary">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Canvas for Merging Image with Frame -->
+  <canvas id="merge-canvas" style="display:none;"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

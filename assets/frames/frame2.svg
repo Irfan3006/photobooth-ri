@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500">
+  <defs>
+    <!-- Paper Texture Gradient -->
+    <linearGradient id="vintagePaper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDFBF7" />
+      <stop offset="50%" stop-color="#F5EFE0" />
+      <stop offset="100%" stop-color="#E8DCBF" />
+    </linearGradient>
+
+    <!-- Dark Overlay Gradient -->
+    <linearGradient id="darkRedGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B71C1C" />
+      <stop offset="100%" stop-color="#4A0E17" />
+    </linearGradient>
+
+    <!-- Drop Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="3" dy="10" stdDeviation="5" flood-color="#000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Solid border frames (Vintage newspaper print border) -->
+  <rect x="0" y="0" width="1200" height="220" fill="url(#darkRedGrad)" />
+  <rect x="0" y="220" width="1200" height="12" fill="#FFFFFF" />
+  
+  <rect x="0" y="232" width="40" height="1048" fill="#4A0E17" />
+  <rect x="1160" y="232" width="40" height="1048" fill="#4A0E17" />
+  <rect x="40" y="232" width="8" height="1048" fill="#FFFFFF" />
+  <rect x="1152" y="232" width="8" height="1048" fill="#FFFFFF" />
+
+  <rect x="0" y="1280" width="1200" height="220" fill="url(#vintagePaper)" stroke="#4A0E17" stroke-width="8" />
+
+  <!-- TOP HEADER TEXTS -->
+  <g filter="url(#shadow)">
+    <text x="600" y="85" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="54" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
+      DIRGAHAYU REPUBLIK INDONESIA
+    </text>
+    <text x="600" y="155" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="64" fill="#FFC107" text-anchor="middle" letter-spacing="2">
+      HUT RI KE-81
+    </text>
+  </g>
+
+  <!-- BOTTOM DESIGN -->
+  <!-- Vintage 1945 Proklamasi elements -->
+  <!-- Left Side: Silhouette of Sukarno Reading Proklamasi Text -->
+  <g transform="translate(48, 1060) scale(1.6)" fill="#2C3E50">
+    <!-- Body -->
+    <path d="M 50,-10 C 35,-10 25,10 25,30 L 25,140 L 95,140 L 95,30 C 95,10 85,-10 70,-10 Z" fill="#111111" />
+    <!-- Head with Peci -->
+    <circle cx="60" cy="-35" r="16" fill="#111111" />
+    <polygon points="46,-47 74,-47 69,-32 51,-32" fill="#111111" />
+    <!-- Reading sheet (Proklamasi Paper) -->
+    <path d="M 70,-20 L 110,-35 L 115,-10 L 75,0 Z" fill="#FDFBF7" stroke="#111111" stroke-width="1.5" />
+    <!-- Arm holding paper -->
+    <path d="M 75,-5 L 90,-20 L 98,-15 L 82,5 Z" fill="#111111" />
+    
+    <!-- Vintage Microphones silhouette in front of him -->
+    <g transform="translate(110, -5)" fill="#424242">
+      <!-- Mic Stand -->
+      <line x1="10" y1="-40" x2="10" y2="130" stroke="#111111" stroke-width="3" />
+      <!-- Mic Head -->
+      <rect x="4" y="-55" width="12" height="15" rx="3" fill="#111111" stroke="#FFFFFF" stroke-width="0.5" />
+      <circle cx="10" cy="-60" r="4" fill="#111111" />
+    </g>
+  </g>
+
+  <!-- Center-Right: Big Vintage Distressed "MERDEKA!" -->
+  <g transform="translate(680, 1375)">
+    <!-- Red Paint Splash/Splat behind Merdeka -->
+    <path d="M -220,-40 Q -100,-70 50,-50 Q 200,-30 250,-10 Q 150,40 -20,20 Q -150,50 -220,-40 Z" fill="#B71C1C" opacity="0.85" filter="url(#shadow)" />
+    
+    <text x="10" y="0" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="75" fill="#FFFFFF" text-anchor="middle" letter-spacing="6">
+      MERDEKA!
+    </text>
+  </g>
+
+  <!-- Bottom Left Info stamp -->
+  <g transform="translate(190, 1315)">
+    <text x="0" y="30" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#4A0E17" letter-spacing="1">
+      KARANGJAMBE RT 05
+    </text>
+    <text x="0" y="65" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#7F8C8D" letter-spacing="3">
+      17 AGUSTUS 2026
+    </text>
+    <text x="0" y="100" font-family="'Courier New', monospace" font-weight="800" font-size="18" fill="#B71C1C" letter-spacing="1">
+      Naskah Asli 17-08-1945
+    </text>
+  </g>
+
+  <!-- Right corner: Small vintage document motif -->
+  <g transform="translate(1080, 1320) scale(0.9)">
+    <rect x="0" y="0" width="60" height="80" rx="3" fill="none" stroke="#4A0E17" stroke-width="3" />
+    <line x1="10" y1="20" x2="50" y2="20" stroke="#4A0E17" stroke-width="3" />
+    <line x1="10" y1="40" x2="50" y2="40" stroke="#4A0E17" stroke-width="3" />
+    <line x1="10" y1="60" x2="35" y2="60" stroke="#4A0E17" stroke-width="3" />
+  </g>
+</svg>

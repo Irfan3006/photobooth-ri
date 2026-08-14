@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500">
+  <defs>
+    <!-- Red Speed Gradient -->
+    <linearGradient id="speedRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E62129" />
+      <stop offset="100%" stop-color="#B71C1C" />
+    </linearGradient>
+
+    <!-- Orange/Gold Glow Gradient -->
+    <linearGradient id="goldGlow" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FF5722" />
+      <stop offset="100%" stop-color="#FFC107" />
+    </linearGradient>
+
+    <!-- Drop Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Modern Dynamic Frame Borders -->
+  <rect x="0" y="0" width="1200" height="1500" fill="none" stroke="url(#speedRed)" stroke-width="16" />
+  <rect x="16" y="16" width="1168" height="1468" fill="none" stroke="#FFFFFF" stroke-width="6" />
+
+  <!-- TOP BANNER (Dynamic Slanted Shape) -->
+  <path d="M 16,16 L 1184,16 L 1184,180 L 700,240 L 16,180 Z" fill="url(#speedRed)" />
+  <path d="M 16,180 L 700,240 L 1184,180" fill="none" stroke="#FFC107" stroke-width="5" />
+
+  <!-- TOP TEXTS -->
+  <g filter="url(#shadow)" transform="translate(450, 100)">
+    <text x="0" y="0" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="52" fill="#FFFFFF" letter-spacing="2">
+      DIRGAHAYU REPUBLIK INDONESIA
+    </text>
+    <text x="0" y="45" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="#FFC107" letter-spacing="4">
+      BANGKIT BERSAMA, MAJU JAYA!
+    </text>
+  </g>
+
+  <!-- Huge Dynamic "81" at Top Left (Slanted) -->
+  <g transform="translate(140, 120) rotate(-10)" filter="url(#shadow)">
+    <rect x="-85" y="-55" width="170" height="110" rx="20" fill="#FFFFFF" stroke="#FFC107" stroke-width="6" />
+    <text x="0" y="24" font-family="'Outfit', sans-serif" font-weight="900" font-size="78" fill="#E62129" text-anchor="middle">81</text>
+  </g>
+
+  <!-- BOTTOM BANNER (Slanted and Dynamic) -->
+  <g transform="translate(0, 1260)" filter="url(#shadow)">
+    <path d="M 16,60 L 500,0 L 1184,60 L 1184,224 L 16,224 Z" fill="url(#speedRed)" />
+    <!-- Gold accent stripe -->
+    <path d="M 16,60 L 500,0 L 1184,60" fill="none" stroke="#FFC107" stroke-width="6" />
+
+    <!-- Center Giant "MERDEKA!" -->
+    <text x="600" y="130" font-family="'Outfit', 'Impact', sans-serif" font-weight="900" font-size="70" fill="#FFFFFF" text-anchor="middle" letter-spacing="8">
+      MERDEKA!
+    </text>
+    
+    <!-- RT 05 and Date Info -->
+    <text x="120" y="180" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#FFC107" letter-spacing="2">
+      KARANGJAMBE RT 05
+    </text>
+    <text x="1080" y="180" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="#FFFFFF" text-anchor="end" letter-spacing="2">
+      17 AGUSTUS 2026
+    </text>
+  </g>
+
+  <!-- DYNAMIC SPEED STRIPES (Side overlays) -->
+  <g fill="url(#speedRed)" opacity="0.85">
+    <!-- Left speed line cuts -->
+    <polygon points="16,350 70,360 70,390 16,420" />
+    <polygon points="16,500 90,515 90,545 16,580" fill="#FFC107" />
+    <polygon points="16,700 60,710 60,735 16,760" />
+    
+    <!-- Right speed line cuts -->
+    <polygon points="1184,350 1130,360 1130,390 1184,420" />
+    <polygon points="1184,500 1110,515 1110,545 1184,580" fill="#FFC107" />
+    <polygon points="1184,700 1140,710 1140,735 1184,760" />
+  </g>
+
+  <!-- SILHOUETTES OF YOUTH CLENCHING FISTS (Semangat Merdeka) -->
+  <!-- Left Side Clenched Fist raising Bamboo spear -->
+  <g transform="translate(60, 1080) scale(1.5)" fill="#111111" filter="url(#shadow)">
+    <!-- Arm -->
+    <path d="M 20,130 L 20,40 C 20,30 30,10 45,10 C 60,10 70,30 70,40 L 70,130 Z" />
+    <!-- Clenched Fist details -->
+    <circle cx="35" cy="18" r="10" />
+    <circle cx="48" cy="15" r="9" />
+    <circle cx="58" cy="18" r="8" />
+    <path d="M 28,25 C 28,15 45,5 55,10 C 65,15 65,30 55,35 C 45,40 28,35 28,25 Z" />
+    <!-- Flag in hand -->
+    <path d="M 45,12 L 45,-80 L 100,-65 L 100,-25 L 45,-10 Z" fill="#E62129" />
+    <path d="M 45,-45 L 100,-35 L 100,-25 L 45,-10 Z" fill="#FFFFFF" />
+    <line x1="45" y1="15" x2="45" y2="-90" stroke="#FFC107" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Right Side Clenched Fist Silhouette -->
+  <g transform="translate(1020, 1080) scale(1.5) scale(-1, 1)" fill="#111111" filter="url(#shadow)">
+    <!-- Arm -->
+    <path d="M 20,130 L 20,40 C 20,30 30,10 45,10 C 60,10 70,30 70,40 L 70,130 Z" />
+    <!-- Clenched Fist details -->
+    <circle cx="35" cy="18" r="10" />
+    <circle cx="48" cy="15" r="9" />
+    <circle cx="58" cy="18" r="8" />
+    <path d="M 28,25 C 28,15 45,5 55,10 C 65,15 65,30 55,35 C 45,40 28,35 28,25 Z" />
+    <!-- Spear in hand -->
+    <line x1="45" y1="15" x2="45" y2="-90" stroke="#111111" stroke-width="4" stroke-linecap="round" />
+    <polygon points="45,-105 40,-90 50,-90" fill="#FFC107" />
+  </g>
+</svg>
