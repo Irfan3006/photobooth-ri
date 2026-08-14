@@ -7,7 +7,7 @@
  *  Ubah IS_APP_LOCKED = false untuk mode normal aplikasi dapat digunakan.
  * ═══════════════════════════════════════════════════════════════════════════
  */
-const IS_APP_LOCKED = false;
+const IS_APP_LOCKED = true;
 
 // ─── Watertight Client Lockdown Protection Engine ───────────────────────────
 (() => {
