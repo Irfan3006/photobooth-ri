@@ -86,6 +86,7 @@ photo-booth/
 │       ├── frame7.svg  # Design 8: Pahlawan Kemerdekaan Modern Twibbon
 │       └── frame8.svg  # Design 8 Alternate: Nusantara Emas Luxury Edition
 │
+├── LICENSE             # MIT License
 └── README.md           # Technical documentation
 ```
 
@@ -103,8 +104,7 @@ The application is pre-configured for static deployment on platforms such as Ver
 
 ---
 
-## Application License & Lockdown Control
+## License
 
-The application source includes a centralized security lockout mechanism (`IS_APP_LOCKED` in `script.js`):
-- **Normal Operation (`IS_APP_LOCKED = false`)**: Full application features, camera streams, frame selector, and download utilities operate normally.
-- **Lockdown Mode (`IS_APP_LOCKED = true`)**: Instantly freezes all application views, replaces DOM contents with a full-screen unpaid settlement notice (`assets/qris.webp`), and enforces strict anti-inspection safeguards (blocking Developer Tools shortcuts, context menu, text copying, printing, and DOM deletion).
+This project is licensed under the terms of the [MIT License](LICENSE).
+Copyright (c) 2026 Irfan Syarifudin.
