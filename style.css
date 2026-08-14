@@ -295,7 +295,44 @@ body {
   font-style: italic;
 }
 
-/* Feature Highlights Grid */
+/* Feature Chips Row (Compact & Elegant for Mobile/Desktop) */
+.feature-chips-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 1.8vw, 12px);
+  margin-bottom: clamp(16px, 3vw, 24px);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(230, 33, 41, 0.18);
+  padding: 6px clamp(10px, 2.5vw, 16px);
+  border-radius: 20px;
+  font-size: clamp(0.76rem, 2.3vw, 0.88rem);
+  font-weight: 700;
+  color: #2D3748;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 33, 41, 0.12);
+  border-color: rgba(230, 33, 41, 0.35);
+}
+
+.text-red {
+  color: #E62129;
+}
+
+/* Feature Highlights Grid (Backward Compatibility) */
 .landing-features-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

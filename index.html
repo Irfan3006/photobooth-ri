@@ -66,12 +66,11 @@
   <!-- Optimized Google Fonts with font-display: swap -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome loaded asynchronously without render blocking -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <!-- FontAwesome loaded reliably for all mobile browsers -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Main Application CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Main Application CSS (Versioned to bust mobile cache) -->
+  <link rel="stylesheet" href="style.css?v=81.4">
 
   <!-- Schema.org JSON-LD Structured Data for Advanced SEO & Rich Results -->
   <script type="application/ld+json">
@@ -83,18 +82,11 @@
         "@id": "https://photobooth-ri.vercel.app/#webapp",
         "name": "Photo Booth HUT RI Ke-81 - Karangjambe RT 05",
         "url": "https://photobooth-ri.vercel.app/",
+        "description": "Aplikasi Web Photo Booth resmi peringatan HUT Kemerdekaan Republik Indonesia Ke-81 tahun 2026 di Karangjambe RT 05.",
         "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
-        "browserRequirements": "Requires modern web browser with HTML5 Canvas and Camera support",
-        "description": "Aplikasi Web Photo Booth interaktif untuk perayaan HUT Kemerdekaan Republik Indonesia Ke-81 Karangjambe RT 05. Abadikan momen dengan berbagai pilihan bingkai eksklusif, dukungan flash senter HP, dan download resolusi tinggi.",
-        "image": "https://photobooth-ri.vercel.app/assets/og-preview.jpg",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires HTML5, WebRTC camera support, and modern JavaScript",
         "inLanguage": "id-ID",
-        "author": {
-          "@type": "Person",
-          "name": "Irfan Syarifudin",
-          "url": "http://irfansyarifudin.my.id/",
-          "jobTitle": "Web Developer & Designer"
-        },
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -104,27 +96,23 @@
       {
         "@type": "Event",
         "@id": "https://photobooth-ri.vercel.app/#event",
-        "name": "Peringatan Hari Ulang Tahun Kemerdekaan RI Ke-81 Karangjambe RT 05",
+        "name": "Peringatan HUT Kemerdekaan RI Ke-81 Karangjambe RT 05",
         "startDate": "2026-08-17T08:00:00+07:00",
-        "endDate": "2026-08-17T23:59:00+07:00",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "endDate": "2026-08-17T23:59:59+07:00",
         "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "location": {
           "@type": "Place",
           "name": "Karangjambe RT 05",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Karangjambe",
+            "addressRegion": "Jawa Tengah",
             "addressCountry": "ID"
           }
         },
-        "image": "https://photobooth-ri.vercel.app/assets/og-preview.jpg",
-        "description": "Perayaan Semarak 17 Agustus 2026 Dirgahayu Kemerdekaan Republik Indonesia Ke-81 Warga Karangjambe RT 05.",
-        "organizer": {
-          "@type": "Organization",
-          "name": "Panitia HUT RI Ke-81 Karangjambe RT 05",
-          "url": "https://photobooth-ri.vercel.app/"
-        }
+        "description": "Perayaan Semarak Kemerdekaan Republik Indonesia Ke-81 di lingkungan RT 05 Karangjambe.",
+        "image": "https://photobooth-ri.vercel.app/assets/og-preview.jpg"
       },
       {
         "@type": "BreadcrumbList",
@@ -133,14 +121,8 @@
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "Beranda",
+            "name": "Beranda Photo Booth",
             "item": "https://photobooth-ri.vercel.app/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Photo Booth HUT RI 81",
-            "item": "https://photobooth-ri.vercel.app/#photobooth"
           }
         ]
       }
@@ -159,7 +141,7 @@
 
   <main class="app-container" id="main-content">
     
-    <!-- 1. LANDING PAGE (REDESIGNED MERAH PUTIH KEMERDEKAAN) -->
+    <!-- 1. LANDING PAGE (COMPACT & CELEBRATORY MERAH PUTIH) -->
     <section id="view-landing" class="view-section active" aria-labelledby="main-heading">
       <div class="landing-card card-glass animate-fade-in">
         <!-- Top Festive Ribbon Accent -->
@@ -173,7 +155,7 @@
           </div>
           <div class="edition-pill">
             <i class="fa-solid fa-star text-gold" aria-hidden="true"></i>
-            <span>HUT RI KE-81 &bull; 17 AGUSTUS 2026</span>
+            <span>17 AGUSTUS 2026 &bull; KE-81</span>
           </div>
         </div>
 
@@ -191,49 +173,22 @@
         </div>
 
         <p class="tagline">
-          "Rayakan semangat kemerdekaan dengan senyuman terbaikmu, pilih bingkai eksklusif, dan abadikan momen bersejarah bersama warga!"
+          "Rayakan kemerdekaan dengan senyuman terbaikmu dan abadikan momen bersama warga!"
         </p>
 
-        <!-- Feature Highlights Grid -->
-        <div class="landing-features-grid" aria-label="Fitur Utama Photo Booth">
-          <div class="feature-item">
-            <div class="feature-icon-box">
-              <i class="fa-solid fa-palette" aria-hidden="true"></i>
-            </div>
-            <div class="feature-text">
-              <strong>7 Desain Bingkai</strong>
-              <small>Nuansa Kemerdekaan</small>
-            </div>
+        <!-- Compact Feature Chips -->
+        <div class="feature-chips-row" aria-label="Fitur Utama Photo Booth">
+          <div class="feature-chip">
+            <i class="fa-solid fa-palette text-red" aria-hidden="true"></i>
+            <span>7 Bingkai Foto</span>
           </div>
-
-          <div class="feature-item">
-            <div class="feature-icon-box">
-              <i class="fa-solid fa-bolt" aria-hidden="true"></i>
-            </div>
-            <div class="feature-text">
-              <strong>Flash Senter HP</strong>
-              <small>Mendukung iPhone/Android</small>
-            </div>
+          <div class="feature-chip">
+            <i class="fa-solid fa-bolt text-gold" aria-hidden="true"></i>
+            <span>Flash Senter HP</span>
           </div>
-
-          <div class="feature-item">
-            <div class="feature-icon-box">
-              <i class="fa-solid fa-camera-retro" aria-hidden="true"></i>
-            </div>
-            <div class="feature-text">
-              <strong>HD 4:5 Rasio</strong>
-              <small>Pas untuk Status & Galeri</small>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon-box">
-              <i class="fa-solid fa-download" aria-hidden="true"></i>
-            </div>
-            <div class="feature-text">
-              <strong>Download Instan</strong>
-              <small>Gratis & Tanpa Batas</small>
-            </div>
+          <div class="feature-chip">
+            <i class="fa-solid fa-camera-retro text-red" aria-hidden="true"></i>
+            <span>HD 4:5 Rasio</span>
           </div>
         </div>
 
