@@ -1,5 +1,5 @@
 /* Service Worker - Photo Booth HUT RI Ke-81 Karangjambe RT 05 */
-const CACHE_NAME = 'photobooth-ri81-v5';
+const CACHE_NAME = 'photobooth-ri81-v6';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -15,7 +15,8 @@ const STATIC_ASSETS = [
   './assets/frames/frame4.svg',
   './assets/frames/frame5.svg',
   './assets/frames/frame6.svg',
-  './assets/frames/frame7.svg'
+  './assets/frames/frame7.svg',
+  './assets/frames/frame8.svg'
 ];
 
 // Install Event: Pre-cache core shell & assets

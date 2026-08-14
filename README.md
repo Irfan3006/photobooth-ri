@@ -37,14 +37,15 @@ An interactive, high-performance web-based photo booth application developed for
 ## Core Functional Specifications
 
 1. **Theme Landing Interface**: Independence-themed user interface honoring the national celebration with responsive glassmorphism containers.
-2. **Standardized Frame Portfolio (4:5 Ratio)**:
-   - **Design 1 (Dirgahayu RI 81)**: Red and white visual composition incorporating official 81st anniversary identity.
-   - **Design 2 (Proklamasi 1945)**: Festive configuration with national ornaments and traditional flags.
-   - **Design 3 (Garuda Indonesia)**: Minimalist layout featuring gold accents and national emblem iconography.
-   - **Design 4 (Merah Putih Festive)**: Celebration design featuring confetti and patriotic elements.
-   - **Design 5 (Batik Nusantara)**: Traditional Indonesian batik patterns integrated with contemporary graphical accents.
-   - **Design 6 (Semangat Kemerdekaan)**: Patriotic visual layout emphasizing national pride.
-   - **Design 7 (Pahlawan Kemerdekaan)**: Historical motif honoring national independence figures.
+2. **Standardized Frame Portfolio (4:5 Ratio - 8 Designs)**:
+   - **Design 1 (Dirgahayu RI 81)**: Official red and white graphic composition for the 81st national anniversary.
+   - **Design 2 (Pita Kemerdekaan)**: Modern patriotic ribbon design with golden laurel 81 emblem.
+   - **Design 3 (Proklamasi 1945)**: Historical tribute featuring Bung Karno silhouette and authentic 1945 text.
+   - **Design 4 (Garuda Indonesia)**: Royal golden layout featuring national emblem iconography.
+   - **Design 5 (Merah Putih Festive)**: Celebratory design with bunting pennants, balloons, and confetti.
+   - **Design 6 (Batik Nusantara)**: Traditional Indonesian batik patterns with contemporary graphical accents.
+   - **Design 7 (Semangat Kemerdekaan)**: Dynamic patriotic visual layout with speed stripes and independence banners.
+   - **Design 8 (Pahlawan Kemerdekaan)**: Contemporary geometric twibbon honoring national independence figures.
 3. **Real-Time Camera Capture Engine**: Utilizes the native HTML5 Media Capture and Streams API (`getUserMedia`) with real-time video mirroring and transparent frame guides.
 4. **Mobile and Hardware Flash Integration**:
    - **Hardware LED Flash**: Directly interfaces with device torch hardware constraints via MediaTrackConstraints on supported iOS and Android browsers.
@@ -75,14 +76,15 @@ photo-booth/
 ├── assets/
 │   ├── og-preview.jpg  # Open Graph and Twitter Card social preview banner
 │   └── frames/         # High-resolution graphic and vector SVG frame assets
-│       ├── background_foto_agustusan.png  # Design 1 (Primary): Dirgahayu RI 81 Official Graphic
-│       ├── frame1.svg  # Design 1 Alternate: Dirgahayu RI 81 Vector
-│       ├── frame2.svg  # Design 2: Proklamasi 1945 Historical Tribute
-│       ├── frame3.svg  # Design 3: Garuda Indonesia Royal Gold
-│       ├── frame4.svg  # Design 4: Merah Putih Festive Celebration
-│       ├── frame5.svg  # Design 5: Batik Nusantara Heritage
-│       ├── frame6.svg  # Design 6: Semangat Kemerdekaan & Pejuang
-│       └── frame7.svg  # Design 7: Pahlawan Kemerdekaan Modern Twibbon
+│       ├── background_foto_agustusan.png  # Design 1: Dirgahayu RI 81 Official Graphic
+│       ├── frame1.svg  # Design 2: Pita Kemerdekaan 81 Vector
+│       ├── frame2.svg  # Design 3: Proklamasi 1945 Historical Tribute
+│       ├── frame3.svg  # Design 4: Garuda Indonesia Royal Gold
+│       ├── frame4.svg  # Design 5: Merah Putih Festive Celebration
+│       ├── frame5.svg  # Design 6: Batik Nusantara Heritage
+│       ├── frame6.svg  # Design 7: Semangat Kemerdekaan & Pejuang
+│       ├── frame7.svg  # Design 8: Pahlawan Kemerdekaan Modern Twibbon
+│       └── frame8.svg  # Design 8 Alternate: Nusantara Emas Luxury Edition
 │
 └── README.md           # Technical documentation
 ```

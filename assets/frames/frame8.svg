@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500">
+  <defs>
+    <!-- Royal Gradient Palette -->
+    <linearGradient id="luxuryRed8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF2E36" />
+      <stop offset="50%" stop-color="#D3141E" />
+      <stop offset="100%" stop-color="#800A10" />
+    </linearGradient>
+
+    <linearGradient id="luxuryGold8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9C4" />
+      <stop offset="25%" stop-color="#FFD54F" />
+      <stop offset="60%" stop-color="#FFA000" />
+      <stop offset="100%" stop-color="#E65100" />
+    </linearGradient>
+
+    <radialGradient id="sunGlow8" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD54F" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#FFD54F" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="shadow8" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- LUXURY DOUBLE BORDER -->
+  <rect x="14" y="14" width="1172" height="1472" rx="28" fill="none" stroke="url(#luxuryGold8)" stroke-width="8" />
+  <rect x="24" y="24" width="1152" height="1452" rx="20" fill="none" stroke="url(#luxuryRed8)" stroke-width="12" />
+  <rect x="36" y="36" width="1128" height="1428" rx="14" fill="none" stroke="url(#luxuryGold8)" stroke-width="3" />
+
+  <!-- TOP HEADER (Grand Arch with Glowing Sunburst) -->
+  <circle cx="600" cy="115" r="160" fill="url(#sunGlow8)" />
+
+  <g filter="url(#shadow8)">
+    <!-- Deep Red Curved Canopy -->
+    <path d="M 36,36 L 1164,36 L 1164,220 C 850,270 350,270 36,220 Z" fill="url(#luxuryRed8)" />
+    <!-- Gold Ribbon Wave Accent -->
+    <path d="M 36,220 C 350,270 850,270 1164,220 L 1164,235 C 850,285 350,285 36,235 Z" fill="url(#luxuryGold8)" />
+    <path d="M 36,235 C 350,285 850,285 1164,235 L 1164,242 C 850,292 350,292 36,242 Z" fill="#FFFFFF" />
+  </g>
+
+  <!-- TOP 81 GOLDEN MEDALLION WITH LAUREL CROWN -->
+  <g transform="translate(600, 110)" filter="url(#shadow8)">
+    <!-- Laurel Wreath Left -->
+    <g fill="url(#luxuryGold8)">
+      <ellipse cx="-58" cy="-18" rx="6" ry="15" transform="rotate(-35 -58 -18)" />
+      <ellipse cx="-72" cy="4" rx="6" ry="15" transform="rotate(-65 -72 4)" />
+      <ellipse cx="-62" cy="28" rx="6" ry="15" transform="rotate(-105 -62 28)" />
+    </g>
+    <!-- Laurel Wreath Right -->
+    <g fill="url(#luxuryGold8)">
+      <ellipse cx="58" cy="-18" rx="6" ry="15" transform="rotate(35 58 -18)" />
+      <ellipse cx="72" cy="4" rx="6" ry="15" transform="rotate(65 72 4)" />
+      <ellipse cx="62" cy="28" rx="6" ry="15" transform="rotate(105 62 28)" />
+    </g>
+
+    <!-- Outer Gold Octagon / Crest -->
+    <polygon points="0,-48 34,-34 48,0 34,34 0,48 -34,34 -48,0 -34,-34" fill="url(#luxuryGold8)" stroke="#FFFFFF" stroke-width="2.5" />
+    <polygon points="0,-40 28,-28 40,0 28,28 0,40 -28,28 -40,0 -28,-28" fill="#800A10" />
+
+    <!-- Big Bold "81" in Pure Gold -->
+    <text x="0" y="18" font-family="'Outfit', sans-serif" font-weight="900" font-size="52" fill="url(#luxuryGold8)" text-anchor="middle" letter-spacing="-1">81</text>
+  </g>
+
+  <!-- TOP TITLE TYPOGRAPHY -->
+  <g filter="url(#shadow8)">
+    <text x="600" y="196" font-family="'Outfit', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
+      DIRGAHAYU REPUBLIK INDONESIA
+    </text>
+    <text x="600" y="236" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="url(#luxuryGold8)" text-anchor="middle" letter-spacing="6">
+      NUSANTARA EMAS &#8226; 17 AGUSTUS 2026
+    </text>
+  </g>
+
+  <!-- SIDE ELEGANT CORNERS -->
+  <g fill="url(#luxuryGold8)">
+    <!-- Top Left Corner Diamond -->
+    <polygon points="45,45 65,45 65,65 55,65 55,55 45,55" />
+    <polygon points="1155,45 1135,45 1135,65 1145,65 1145,55 1155,55" />
+    <!-- Middle Side Ribbons -->
+    <polygon points="36,600 75,620 75,660 36,680" fill="url(#luxuryRed8)" />
+    <polygon points="36,690 65,705 65,730 36,745" fill="url(#luxuryGold8)" />
+
+    <polygon points="1164,600 1125,620 1125,660 1164,680" fill="url(#luxuryRed8)" />
+    <polygon points="1164,690 1135,705 1135,730 1164,745" fill="url(#luxuryGold8)" />
+  </g>
+
+  <!-- BOTTOM FOOTER (Luxury Golden Base) -->
+  <g filter="url(#shadow8)">
+    <!-- Dark Red Curved Panel -->
+    <path d="M 36,1280 C 350,1230 850,1230 1164,1280 L 1164,1464 L 36,1464 Z" fill="url(#luxuryRed8)" />
+    <!-- Gold Top Trim Lines -->
+    <path d="M 36,1280 C 350,1230 850,1230 1164,1280" fill="none" stroke="url(#luxuryGold8)" stroke-width="5" />
+    <path d="M 36,1292 C 350,1242 850,1242 1164,1292" fill="none" stroke="#FFFFFF" stroke-width="2" />
+
+    <!-- Center RT 05 Gold Plaque -->
+    <g transform="translate(600, 1345)">
+      <rect x="-280" y="-35" width="560" height="70" rx="35" fill="url(#luxuryGold8)" stroke="#FFFFFF" stroke-width="4" filter="url(#shadow8)" />
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-weight="900" font-size="38" fill="#800A10" text-anchor="middle" letter-spacing="3">
+        KARANGJAMBE RT 05
+      </text>
+    </g>
+
+    <!-- Subtitle text -->
+    <text x="600" y="1428" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" fill="#FFFFFF" text-anchor="middle" letter-spacing="5">
+      BERSATU KITA TEGUH &#8226; MENUJU INDONESIA EMAS
+    </text>
+  </g>
+</svg>
