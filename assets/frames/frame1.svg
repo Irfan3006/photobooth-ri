@@ -34,51 +34,69 @@
   <rect x="24" y="24" width="1152" height="1452" rx="16" fill="none" stroke="#FFFFFF" stroke-width="6" />
   <rect x="34" y="34" width="1132" height="1432" rx="12" fill="none" stroke="url(#goldGrad1)" stroke-width="3" opacity="0.85" />
 
-  <!-- TOP HEADER BANNER (Dynamic Wave and Flags) -->
+  <!-- TOP HEADER BANNER (Smooth Dynamic Wave) -->
   <g filter="url(#shadow1)">
-    <!-- Top Red Arch -->
-    <path d="M 34,34 L 1166,34 L 1166,220 Q 600,280 34,220 Z" fill="url(#redGrad1)" />
+    <!-- Top Red Canopy -->
+    <path d="M 34,34 L 1166,34 L 1166,230 Q 600,290 34,230 Z" fill="url(#redGrad1)" />
     <!-- White Wave Ribbon Accent -->
-    <path d="M 34,220 Q 600,280 1166,220 L 1166,236 Q 600,296 34,236 Z" fill="#FFFFFF" />
+    <path d="M 34,230 Q 600,290 1166,230 L 1166,246 Q 600,306 34,246 Z" fill="#FFFFFF" />
     <!-- Gold Accent Line -->
-    <path d="M 34,236 Q 600,296 1166,236 L 1166,242 Q 600,302 34,242 Z" fill="url(#goldGrad1)" />
+    <path d="M 34,246 Q 600,306 1166,246 L 1166,252 Q 600,312 34,252 Z" fill="url(#goldGrad1)" />
   </g>
 
   <!-- Left and Right Hanging Pennant Buntings (Festive Independence) -->
   <g fill="#FFFFFF" opacity="0.95">
-    <polygon points="60,34 95,34 80,100" fill="#FFFFFF" />
-    <polygon points="60,34 95,34 77,70" fill="#B71C1C" />
-    <polygon points="110,34 145,34 130,110" fill="#FFFFFF" />
-    <polygon points="110,34 145,34 127,75" fill="#B71C1C" />
-    <polygon points="160,34 195,34 180,100" fill="#FFFFFF" />
-    <polygon points="160,34 195,34 177,70" fill="#B71C1C" />
+    <polygon points="60,34 95,34 80,95" fill="#FFFFFF" />
+    <polygon points="60,34 95,34 77,65" fill="#B71C1C" />
+    <polygon points="110,34 145,34 130,105" fill="#FFFFFF" />
+    <polygon points="110,34 145,34 127,70" fill="#B71C1C" />
+    <polygon points="160,34 195,34 180,95" fill="#FFFFFF" />
+    <polygon points="160,34 195,34 177,65" fill="#B71C1C" />
 
-    <polygon points="1005,34 1040,34 1025,100" fill="#FFFFFF" />
-    <polygon points="1005,34 1040,34 1023,70" fill="#B71C1C" />
-    <polygon points="1055,34 1090,34 1075,110" fill="#FFFFFF" />
-    <polygon points="1055,34 1090,34 1073,75" fill="#B71C1C" />
-    <polygon points="1105,34 1140,34 1125,100" fill="#FFFFFF" />
-    <polygon points="1105,34 1140,34 1123,70" fill="#B71C1C" />
+    <polygon points="1005,34 1040,34 1025,95" fill="#FFFFFF" />
+    <polygon points="1005,34 1040,34 1023,65" fill="#B71C1C" />
+    <polygon points="1055,34 1090,34 1075,105" fill="#FFFFFF" />
+    <polygon points="1055,34 1090,34 1073,70" fill="#B71C1C" />
+    <polygon points="1105,34 1140,34 1125,95" fill="#FFFFFF" />
+    <polygon points="1105,34 1140,34 1123,65" fill="#B71C1C" />
   </g>
 
-  <!-- TOP HEADER TEXTS AND 81 ANNIVERSARY SHIELD -->
-  <!-- Center 81 Laurel Badge -->
-  <g transform="translate(600, 115)" filter="url(#shadow1)">
-    <!-- Golden Shield Badge -->
-    <rect x="-80" y="-55" width="160" height="110" rx="20" fill="url(#goldGrad1)" stroke="#FFFFFF" stroke-width="4" />
-    <text x="0" y="24" font-family="'Outfit', sans-serif" font-weight="900" font-size="78" fill="#B71C1C" text-anchor="middle" letter-spacing="-1">81</text>
+  <!-- CENTER 81 EMBLEM (CLEAN, PROPORTIONAL, SPACIOUS) -->
+  <g transform="translate(600, 105)" filter="url(#shadow1)">
+    <!-- Laurel Leaves Left -->
+    <g fill="url(#goldGrad1)">
+      <ellipse cx="-58" cy="-15" rx="6" ry="14" transform="rotate(-35 -58 -15)" />
+      <ellipse cx="-70" cy="5" rx="6" ry="14" transform="rotate(-65 -70 5)" />
+      <ellipse cx="-60" cy="26" rx="6" ry="14" transform="rotate(-105 -60 26)" />
+    </g>
+    <!-- Laurel Leaves Right -->
+    <g fill="url(#goldGrad1)">
+      <ellipse cx="58" cy="-15" rx="6" ry="14" transform="rotate(35 58 -15)" />
+      <ellipse cx="70" cy="5" rx="6" ry="14" transform="rotate(65 70 5)" />
+      <ellipse cx="60" cy="26" rx="6" ry="14" transform="rotate(105 60 26)" />
+    </g>
+
+    <!-- Outer Gold Ring -->
+    <circle cx="0" cy="5" r="48" fill="url(#goldGrad1)" stroke="#FFFFFF" stroke-width="3" />
+    <!-- Inner White Medallion -->
+    <circle cx="0" cy="5" r="41" fill="#FFFFFF" />
+
+    <!-- Big Bold "81" -->
+    <text x="0" y="24" font-family="'Outfit', sans-serif" font-weight="900" font-size="52" fill="#B71C1C" text-anchor="middle" letter-spacing="-1">81</text>
     
-    <!-- Flag Strip on Badge -->
-    <rect x="-60" y="-45" width="120" height="10" rx="3" fill="#E62129" />
-    <rect x="-60" y="-35" width="120" height="10" rx="3" fill="#FFFFFF" />
+    <!-- Mini Ribbon Tag Below Circle -->
+    <g transform="translate(0, 48)">
+      <rect x="-42" y="-10" width="84" height="20" rx="10" fill="url(#goldGrad1)" stroke="#FFFFFF" stroke-width="1.5" />
+      <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#B71C1C" text-anchor="middle" letter-spacing="1">HUT RI</text>
+    </g>
   </g>
 
-  <!-- Top Title Texts -->
+  <!-- TOP TITLE TYPOGRAPHY (WELL SPACED) -->
   <g filter="url(#shadow1)">
-    <text x="600" y="195" font-family="'Outfit', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
+    <text x="600" y="196" font-family="'Outfit', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
       DIRGAHAYU REPUBLIK INDONESIA
     </text>
-    <text x="600" y="235" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" fill="url(#goldGrad1)" text-anchor="middle" letter-spacing="6">
+    <text x="600" y="238" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="url(#goldGrad1)" text-anchor="middle" letter-spacing="6">
       17 AGUSTUS 1945 - 17 AGUSTUS 2026
     </text>
   </g>
