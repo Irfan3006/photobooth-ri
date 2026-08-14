@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://photobooth-ri.vercel.app/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://photobooth-ri.vercel.app/assets/og-preview.jpg</image:loc>
+      <image:title>Photo Booth HUT RI Ke-81 Karangjambe RT 05</image:title>
+      <image:caption>Aplikasi Web Photo Booth Kemerdekaan RI ke-81 Karangjambe RT 05</image:caption>
+    </image:image>
+  </url>
+</urlset>

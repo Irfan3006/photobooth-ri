@@ -1,0 +1,6 @@
+# robots.txt for Photo Booth HUT RI Ke-81 Karangjambe RT 05
+User-agent: *
+Allow: /
+
+# Directives for search crawlers
+Sitemap: https://photobooth-ri.vercel.app/sitemap.xml

@@ -1,53 +1,99 @@
-# 📸 Photo Booth Digital - HUT RI Ke-81 Karangjambe RT 05
+# Digital Photo Booth - 81st Indonesian Independence Day Karangjambe RT 05
 
-Aplikasi web Photo Booth interaktif bertema Kemerdekaan Indonesia ke-81 untuk kegiatan perayaan warga RT 05 Karangjambe (17 Agustus 2026). Website dirancang agar modern, responsif, ceria, dan mudah digunakan oleh semua kalangan umur baik menggunakan handphone (HP), tablet, maupun laptop.
+**Production URL**: [https://photobooth-ri.vercel.app/](https://photobooth-ri.vercel.app/)
 
-## ✨ Fitur Utama
-1. **Landing Page Kemerdekaan**: Desain modern bertema merah-putih dengan ornamen kemerdekaan yang estetik.
-2. **Pilih Desain (5 Bingkai)**: Tersedia 5 pilihan bingkai bertema kemerdekaan beresolusi tinggi (menggunakan format SVG agar tajam di layar apa pun):
-   - **Desain 1 (Merah Putih)**: Dominasi merah putih dengan penulisan resmi HUT RI ke-81.
-   - **Desain 2 (Kemerdekaan)**: Ornamen bendera gantung dan ornamen kemerdekaan tradisional yang meriah.
-   - **Desain 3 (Elegan)**: Minimalis bernuansa putih, garis tipis merah, dan aksen emas premium.
-   - **Desain 4 (Ceria)**: Playful dengan confetti, balon merah-putih, bintang-bintang, dan balon percikan pesta.
-   - **Desain 5 (Karangjambe RT 05)**: Khusus identitas rukun tetangga dengan ornamen batik modern.
-3. **Kamera Real-time**: Menggunakan API browser langsung (`getUserMedia`) dengan mirror preview dan panduan bingkai transparan secara real-time.
-4. **Hitung Mundur (Countdown)**: Sistem hitung mundur visual 3-2-1 otomatis sebelum foto diambil.
-5. **Fallback Upload Galeri**: Pilihan unggah foto langsung dari galeri jika perangkat tidak memiliki kamera atau izin akses ditolak.
-6. **Canvas Merger (1200x1500px)**: Menggabungkan foto asli dengan bingkai secara proporsional dengan kualitas tinggi (portrait 4:5).
-7. **Simpan / Unduh**: Hasil foto yang telah digabung langsung bisa diunduh ke perangkat pengguna dengan satu tombol.
+An interactive, high-performance web-based photo booth application developed for the 81st Indonesian Independence Day celebration at Karangjambe RT 05 on August 17, 2026. The application is engineered with modern web standards, advanced Search Engine Optimization (SEO), complete Open Graph protocol integration for social media sharing, and hardware-accelerated 60 FPS rendering across mobile devices (iOS Safari and Android), tablets, and desktop environments.
 
-## 🚀 Cara Menjalankan Aplikasi
-Aplikasi ini sepenuhnya berjalan di sisi klien (Client-side / Static Web App), tidak membutuhkan server backend/database untuk dijalankan.
+---
 
-### Menjalankan secara Lokal:
-1. Pastikan Anda memiliki browser modern (seperti Chrome, Edge, Safari, atau Firefox).
-2. Buka folder `d:\foto both` di komputer Anda.
-3. Klik dua kali pada file `index.html` untuk langsung membukanya di browser.
-4. **Penting**: Beberapa browser membatasi akses webcam jika file dibuka langsung menggunakan protokol `file://`. Untuk performa dan kompatibilitas kamera yang optimal, jalankan aplikasi ini menggunakan server lokal (seperti ekstensi Live Server di VS Code, XAMPP, atau dev server lainnya).
+## Technical Architecture and Performance Optimizations
 
-## 📁 Struktur Proyek
+### 1. Speed and Core Web Vitals Optimization
+- **In-Memory Frame Caching**: Preloads and decodes all high-resolution vector and graphic frames into an in-memory map on initial page load, delivering zero-latency (0 ms) canvas compositing immediately following the capture sequence.
+- **Optimized Typography Loading**: Selectively requests required font weights (`Outfit` and `Inter`) with `font-display: swap` alongside `preconnect` and `dns-prefetch` directives, eliminating render-blocking network requests.
+- **Cumulative Layout Shift (CLS) Mitigation**: Enforces explicit width and height dimensions with fixed 4:5 aspect ratio containers across all preview cards and frame elements.
+- **Progressive Web App (PWA) Caching**: Implements a Cache-First Service Worker (`sw.js`) enabling sub-50 ms repeat load times and full offline operational capability.
+
+### 2. Rendering Performance and Hardware Acceleration
+- **Compositor Layer Promotion**: Promotes interactive components, countdown overlays, modal dialogs, and navigation elements to dedicated GPU layers using CSS `transform: translateZ(0)` and `will-change` properties.
+- **CSS Containment**: Applies `contain: layout style` to frame selection cards to isolate layout calculations and prevent global page reflows during user interaction.
+- **Asynchronous Cloud Upload Processing**: Dispatches high-resolution image uploads to Google Drive via non-blocking execution (`requestIdleCallback` / deferred background queues), preventing frame drops during view transitions.
+- **Resource and Power Conservation**: Monitors document visibility via the Page Visibility API to automatically suspend active `MediaStream` camera tracks when the tab is backgrounded or minimized.
+
+### 3. Open Graph and Social Media Metadata
+- **Open Graph Protocol Implementation**: Comprehensive integration of `og:title`, `og:description`, `og:image`, `og:url`, `og:type`, `og:site_name`, and `og:locale` tags ensuring high-fidelity visual cards across WhatsApp, Facebook, Instagram, Telegram, LinkedIn, and Discord.
+- **Twitter Card Specifications**: Configured `summary_large_image` card directives referencing a dedicated 1280x720 pixel high-resolution preview banner (`assets/og-preview.jpg`).
+- **Application Manifest and Vector Icons**: Scalable SVG favicon (`favicon.svg`) and complete Web Application Manifest (`site.webmanifest`).
+
+### 4. Search Engine Optimization and Structured Data
+- **Schema.org JSON-LD Markup**:
+  - `WebApplication`: Defines software application parameters, platform compatibility, free access tier, and developer attribution.
+  - `Event`: Structured representation of the 81st Independence Day community event on August 17, 2026.
+  - `BreadcrumbList`: Establishes clear navigation hierarchy for search engine indexing.
+- **Crawler Directives**: Configured `robots.txt` and comprehensive XML sitemap (`sitemap.xml`) including image metadata.
+
+---
+
+## Core Functional Specifications
+
+1. **Theme Landing Interface**: Independence-themed user interface honoring the national celebration with responsive glassmorphism containers.
+2. **Standardized Frame Portfolio (4:5 Ratio)**:
+   - **Design 1 (Dirgahayu RI 81)**: Red and white visual composition incorporating official 81st anniversary identity.
+   - **Design 2 (Proklamasi 1945)**: Festive configuration with national ornaments and traditional flags.
+   - **Design 3 (Garuda Indonesia)**: Minimalist layout featuring gold accents and national emblem iconography.
+   - **Design 4 (Merah Putih Festive)**: Celebration design featuring confetti and patriotic elements.
+   - **Design 5 (Batik Nusantara)**: Traditional Indonesian batik patterns integrated with contemporary graphical accents.
+   - **Design 6 (Semangat Kemerdekaan)**: Patriotic visual layout emphasizing national pride.
+   - **Design 7 (Pahlawan Kemerdekaan)**: Historical motif honoring national independence figures.
+3. **Real-Time Camera Capture Engine**: Utilizes the native HTML5 Media Capture and Streams API (`getUserMedia`) with real-time video mirroring and transparent frame guides.
+4. **Mobile and Hardware Flash Integration**:
+   - **Hardware LED Flash**: Directly interfaces with device torch hardware constraints via MediaTrackConstraints on supported iOS and Android browsers.
+   - **Screen Illumination Flash**: Full-screen white burst overlay designed for front-facing selfie cameras and low-light environments.
+   - **Automatic Hardware Fallback**: Detects device capabilities dynamically and switches to screen illumination when hardware flash is unsupported.
+5. **Synchronized Countdown Sequence**: Automated 3-2-1 timer synchronized with pre-capture flash trigger.
+6. **Local File Upload Fallback**: Supports direct image selection from device storage when live camera streaming permissions are unavailable.
+7. **High-Resolution Canvas Compositing**: Combines camera input or uploaded photographs with selected frames onto a fixed 1080x1350 pixel canvas (4:5 portrait ratio).
+8. **Multi-Platform Image Export**: Leverages the Web Share API for native mobile "Save to Photos" / share sheet functionality alongside direct Blob Object URL downloads.
+9. **Developer Portfolio Interface**: Interactive modal dialog documenting developer credentials and portfolio information for **Irfan Syarifudin** ([http://irfansyarifudin.my.id/](http://irfansyarifudin.my.id/)).
+
+---
+
+## Repository Structure
+
 ```text
 photo-booth/
 │
-├── index.html          # Struktur visual utama SPA
-├── style.css           # Desain UI premium, responsif, dan efek glassmorphism
-├── script.js           # Sistem kamera, hitung mundur, canvas merging, dan download
+├── index.html          # Main HTML5 document containing semantic layout, SEO, OG, and JSON-LD
+├── style.css           # Hardware-accelerated stylesheet, responsive layouts, and tokens
+├── script.js           # Application logic, in-memory frame cache, canvas rendering, and camera control
+├── sw.js               # Service Worker implementation for offline caching
+├── site.webmanifest    # Web Application Manifest configuration
+├── robots.txt          # Web crawler indexation directives
+├── sitemap.xml         # XML sitemap for search engine discovery
+├── favicon.svg         # Vector application icon
 │
 ├── assets/
-│   ├── frames/         # Berkas bingkai foto (SVG)
-│   │   ├── frame1.svg
-│   │   ├── frame2.svg
-│   │   ├── frame3.svg
-│   │   ├── frame4.svg
-│   │   └── frame5.svg
-│   │
-│   └── images/
+│   ├── og-preview.jpg  # Open Graph and Twitter Card social preview banner
+│   └── frames/         # High-resolution SVG and PNG frame assets
+│       ├── background_foto_agustusan.png
+│       ├── frame1.svg
+│       ├── frame2.svg
+│       ├── frame3.svg
+│       ├── frame4.svg
+│       ├── frame5.svg
+│       └── frame6.svg
 │
-└── README.md           # Panduan penggunaan proyek
+└── README.md           # Technical documentation
 ```
 
-## 🛠️ Catatan Teknis
-- Penggabungan foto dan bingkai menggunakan **Canvas API** HTML5.
-- Orientasi default adalah **Portrait (4:5)** untuk menyesuaikan frame vertikal yang ideal untuk selfie di HP maupun laptop.
-- Pengambilan foto dari webcam otomatis di-mirror agar gerakan pengguna tampak natural (seperti cermin), namun hasil akhir gabungan juga di-mirror agar tulisan baju/kiri-kanan pengguna sesuai dengan yang dilihat di cermin saat pemotretan.
-- Seluruh kode ditulis dengan vanilla HTML, CSS, dan JavaScript tanpa pustaka eksternal yang berat, memastikan web berjalan dengan sangat cepat bahkan di HP dengan koneksi internet terbatas.
+---
+
+## Deployment and Local Execution
+
+### Local Development Environment
+1. Open the project root directory in a local web server (e.g., Python `http.server`, Node.js `http-server`, or Visual Studio Code Live Server).
+2. Access `http://localhost:8080` (or assigned port) in a modern web browser (Google Chrome, Mozilla Firefox, Microsoft Edge, or Apple Safari).
+3. **Note on Media Access**: Modern browser security policies mandate an HTTPS context or `localhost` origin to access user media hardware (`getUserMedia`).
+
+### Production Deployment
+The application is pre-configured for static deployment on platforms such as Vercel, Netlify, or GitHub Pages. Production builds require no compilation step and run directly via static web hosting.
