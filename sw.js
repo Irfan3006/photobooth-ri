@@ -1,5 +1,5 @@
 /* Service Worker - Photo Booth HUT RI Ke-81 Karangjambe RT 05 */
-const CACHE_NAME = 'photobooth-ri81-v10';
+const CACHE_NAME = 'photobooth-ri81-v11';
 const STATIC_ASSETS = [
   './',
   './index.html',

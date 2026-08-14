@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showView(viewCamera);
   }
 
-  // ─── 3. Camera Management (Optimized 60FPS / Low Latency) ───────────────────
+  // ─── 3. Camera Management (iPhone 11 & Mobile 60FPS / Low Latency) ────────
   async function startCamera(facingMode) {
     if (cameraLoader) cameraLoader.classList.remove('hidden');
     if (cameraError)  cameraError.classList.add('hidden');
@@ -425,13 +425,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mediaStream) stopCamera();
 
+    // Ensure required iOS video element flags are set before stream starts
+    if (video) {
+      video.setAttribute('playsinline', 'true');
+      video.setAttribute('webkit-playsinline', 'true');
+      video.setAttribute('autoplay', 'true');
+      video.muted = true;
+      video.playsInline = true;
+    }
+
     const tryStart = async (mode) => {
+      // iPhone 11 optimized native camera constraints (prevents software downscaling stutter)
       const constraints = {
         video: {
           facingMode: { ideal: mode },
-          width:  { ideal: 1280, max: 1920 },
-          height: { ideal: 960, max: 1080 },
-          frameRate: { ideal: 30, max: 60 }
+          width:  { ideal: 1280 },
+          height: { ideal: 720 },
+          frameRate: { ideal: 60, min: 30 }
         },
         audio: false
       };
@@ -452,11 +462,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       return new Promise((resolve) => {
-        video.onloadedmetadata = () => {
+        const onReady = () => {
           if (cameraLoader) cameraLoader.classList.add('hidden');
           video.play().catch(() => {});
           resolve();
         };
+
+        if (video.readyState >= 2) {
+          onReady();
+        } else {
+          video.onloadedmetadata = onReady;
+        }
       });
     };
 
@@ -569,14 +585,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!file) return;
 
       const reader = new FileReader();
-      reader.onload = (ev) => {
+      reader.onload = (event) => {
         const img = new Image();
-        img.onload  = () => { capturedImage = img; mergeAndGenerate(false, false); };
-        img.onerror = () => alert('Gagal memuat gambar. Silakan coba gambar lain.');
-        img.src = ev.target.result;
+        img.onload = () => {
+          capturedImage = img;
+          mergeAndGenerate(false, false);
+        };
+        img.src = event.target.result;
       };
       reader.readAsDataURL(file);
-      e.target.value = '';
+      fileUpload.value = '';
     });
   }
 
@@ -653,8 +671,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── 7. Ultra-Fast Canvas Merge (0ms Instant Snap) ───────────────────────────
+  // ─── 7. Ultra-Fast Canvas Merge (0ms Instant Snap & Blob Pipeline) ────────────
   const GOOGLE_DRIVE_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwhNF8RSs1mBzbbYBEobMlSFWMc-6RtNwr97IiT5UxCZUbuzB_v2PsOoQMPi4R2Km2kkA/exec';
+
+  let currentResultBlob = null;
+  let currentResultUrl  = null;
 
   // Asynchronous Non-Blocking Google Drive Upload
   function uploadToGoogleDriveAsync(dataURL) {
@@ -697,7 +718,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const canvas = mergeCanvas;
-    const ctx    = canvas.getContext('2d', { alpha: false, desynchronized: true });
+    const ctx    = canvas.getContext('2d', { alpha: false, willReadFrequently: false });
 
     canvas.width  = OUTPUT_WIDTH;
     canvas.height = OUTPUT_HEIGHT;
@@ -712,8 +733,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ? (video.videoWidth || video.clientWidth || 1280)
       : (capturedImage ? (capturedImage.naturalWidth || capturedImage.width || 1280) : 1280);
     const srcH = isFromWebcam
-      ? (video.videoHeight || video.clientHeight || 960)
-      : (capturedImage ? (capturedImage.naturalHeight || capturedImage.height || 960) : 960);
+      ? (video.videoHeight || video.clientHeight || 720)
+      : (capturedImage ? (capturedImage.naturalHeight || capturedImage.height || 720) : 720);
 
     ctx.save();
     if (shouldMirror) {
@@ -733,13 +754,44 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Draw Pre-cached Frame Overlay (Instant 0ms Composite)
     const renderOutput = () => {
       try {
+        // High efficiency Blob export (avoids main-thread memory spike on iPhone 11)
+        canvas.toBlob((blob) => {
+          if (!blob) {
+            const dataURL = canvas.toDataURL('image/png', 0.95);
+            if (resultPhoto) resultPhoto.src = dataURL;
+            showView(viewResult);
+            uploadToGoogleDriveAsync(dataURL);
+            return;
+          }
+
+          if (currentResultUrl) {
+            URL.revokeObjectURL(currentResultUrl);
+          }
+
+          currentResultBlob = blob;
+          currentResultUrl  = URL.createObjectURL(blob);
+
+          if (resultPhoto) resultPhoto.src = currentResultUrl;
+          showView(viewResult);
+
+          // Asynchronous Google Drive Upload in Idle background
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => {
+              const dataURL = canvas.toDataURL('image/png', 0.92);
+              uploadToGoogleDriveAsync(dataURL);
+            });
+          } else {
+            setTimeout(() => {
+              const dataURL = canvas.toDataURL('image/png', 0.92);
+              uploadToGoogleDriveAsync(dataURL);
+            }, 100);
+          }
+        }, 'image/png', 0.95);
+      } catch (err) {
+        console.error('Canvas export error:', err);
         const dataURL = canvas.toDataURL('image/png', 0.95);
         if (resultPhoto) resultPhoto.src = dataURL;
         showView(viewResult);
-        uploadToGoogleDriveAsync(dataURL);
-      } catch (err) {
-        console.error('Canvas export error:', err);
-        alert('Gagal mengekspor foto.');
       }
     };
 
@@ -765,36 +817,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Convert DataURL to Blob
-  function dataURLtoBlob(dataurl) {
-    const arr = dataurl.split(',');
-    const mime = arr[0].match(/:(.*?);/)[1];
-    const bstr = atob(arr[1]);
-    let n = bstr.length;
-    const u8arr = new Uint8Array(n);
-    while (n--) {
-      u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new Blob([u8arr], { type: mime });
-  }
-
-  // ─── 8. Result Page Actions ──────────────────────────────────────────────────
+  // ─── 8. Result Page Actions (Fast Web Share & Blob Download) ─────────────────
   if (btnDownload) {
     btnDownload.addEventListener('click', async () => {
-      const dataURL = resultPhoto ? resultPhoto.src : null;
-      if (!dataURL || dataURL === window.location.href || dataURL.length < 100) {
-        alert('Tidak ada foto yang bisa diunduh. Silakan ambil foto terlebih dahulu.');
-        return;
-      }
-
       const dateStr  = new Date().toISOString().slice(0, 10);
       const fileName = `PhotoBooth-KarangjambeRT05-${dateStr}.png`;
 
       try {
-        const blob = dataURLtoBlob(dataURL);
+        let blob = currentResultBlob;
+        if (!blob && resultPhoto && resultPhoto.src) {
+          blob = await (await fetch(resultPhoto.src)).blob();
+        }
+
+        if (!blob) {
+          alert('Tidak ada foto yang bisa diunduh. Silakan ambil foto terlebih dahulu.');
+          return;
+        }
+
         const file = new File([blob], fileName, { type: 'image/png' });
 
-        // 1. Web Share API (Best for iPhone / Android: native "Save Image to Photos" or share)
+        // 1. Web Share API (Best for iPhone 11 / iOS: native "Save Image to Photos" or share)
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
           try {
             await navigator.share({
@@ -809,8 +851,8 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        // 2. Blob Object URL Download
-        const blobUrl = URL.createObjectURL(blob);
+        // 2. Direct Blob URL Download Link
+        const blobUrl = currentResultUrl || URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.download = fileName;
         link.href     = blobUrl;
