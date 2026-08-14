@@ -120,14 +120,15 @@ const IS_APP_LOCKED = true;
         </div>
 
         <div class="lockdown-contact-actions">
-          <a href="https://wa.me/62895322238476?text=Halo%20Developer,%20saya%20ingin%20konfirmasi%20pelunasan%20aplikasi%20Photo%20Booth%20HUT%20RI%2081" target="_blank" rel="noopener noreferrer" class="btn-lockdown-wa">
+          <a href="https://wa.me/6289614470802?text=Halo%20Developer,%20saya%20ingin%20konfirmasi%20pelunasan%20aplikasi%20Photo%20Booth%20HUT%20RI%2081" target="_blank" rel="noopener noreferrer" class="btn-lockdown-wa">
             <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i>
-            <span>KONFIRMASI PELUNASAN KE DEVELOPER</span>
+            <span>HUBUNGI VIA WHATSAPP (+62 896-1447-0802)</span>
           </a>
         </div>
 
         <div class="lockdown-dev-info">
-          Pengembang Resmi: <strong>Irfan Syarifudin</strong> &bull; <a href="http://irfansyarifudin.my.id/" target="_blank" rel="noopener noreferrer">irfansyarifudin.my.id</a>
+          Pengembang Resmi: <strong>Irfan Syarifudin</strong> &bull; WhatsApp: <strong>+62 896-1447-0802</strong><br>
+          Website: <a href="http://irfansyarifudin.my.id/" target="_blank" rel="noopener noreferrer">irfansyarifudin.my.id</a>
         </div>
       </div>
     </div>
