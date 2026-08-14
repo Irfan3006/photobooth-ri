@@ -74,14 +74,14 @@ photo-booth/
 │
 ├── assets/
 │   ├── og-preview.jpg  # Open Graph and Twitter Card social preview banner
-│   └── frames/         # High-resolution SVG and PNG frame assets
-│       ├── background_foto_agustusan.png
-│       ├── frame1.svg
-│       ├── frame2.svg
-│       ├── frame3.svg
-│       ├── frame4.svg
-│       ├── frame5.svg
-│       └── frame6.svg
+│   └── frames/         # High-resolution vector SVG frame assets
+│       ├── frame1.svg  # Design 1: Dirgahayu RI 81 Modern Patriotic
+│       ├── frame2.svg  # Design 2: Proklamasi 1945 Historical Tribute
+│       ├── frame3.svg  # Design 3: Garuda Indonesia Royal Gold
+│       ├── frame4.svg  # Design 4: Merah Putih Festive Celebration
+│       ├── frame5.svg  # Design 5: Batik Nusantara Heritage
+│       ├── frame6.svg  # Design 6: Semangat Kemerdekaan & Pejuang
+│       └── frame7.svg  # Design 7: Pahlawan Kemerdekaan Modern Twibbon
 │
 └── README.md           # Technical documentation
 ```

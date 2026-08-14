@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500">
   <defs>
     <!-- Gold Gradient -->
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="goldGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#FFE082" />
       <stop offset="30%" stop-color="#FFD54F" />
       <stop offset="70%" stop-color="#FFB300" />
@@ -9,93 +9,76 @@
     </linearGradient>
 
     <!-- Deep Red -->
-    <linearGradient id="deepRed" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="deepRed5" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#B71C1C" />
-      <stop offset="100%" stop-color="#6B0F14" />
+      <stop offset="100%" stop-color="#5E0B10" />
     </linearGradient>
 
-    <!-- Shadow -->
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000" flood-opacity="0.35" />
+    <!-- Drop Shadow -->
+    <filter id="shadow5" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.38" />
     </filter>
 
     <!-- Batik Parang Diagonal Pattern for Sides -->
-    <pattern id="batikParangLeft" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <!-- Batik Parang Unit -->
+    <pattern id="batikParang5" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <path d="M 0,0 C 20,0 20,40 40,40 C 60,40 60,0 80,0 L 80,20 C 60,20 60,60 40,60 C 20,60 20,20 0,20 Z" fill="#FFE082" opacity="0.85" />
       <path d="M 0,40 C 20,40 20,80 40,80 C 60,80 60,40 80,40 L 80,60 C 60,60 60,100 40,100 C 20,100 20,60 0,60 Z" fill="#FFB300" opacity="0.85" />
-      <!-- S-shape inner lines -->
       <path d="M 10,10 C 20,15 20,25 30,30" stroke="#B71C1C" stroke-width="2" fill="none" />
       <path d="M 50,50 C 60,55 60,65 70,70" stroke="#B71C1C" stroke-width="2" fill="none" />
     </pattern>
   </defs>
 
-  <!-- Solid borders -->
-  <rect x="0" y="0" width="1200" height="1500" fill="none" stroke="url(#goldGrad)" stroke-width="16" />
-  <rect x="16" y="16" width="1168" height="1468" fill="none" stroke="url(#deepRed)" stroke-width="12" />
+  <!-- SOLID BORDERS -->
+  <rect x="0" y="0" width="1200" height="1500" fill="none" stroke="url(#goldGrad5)" stroke-width="16" />
+  <rect x="16" y="16" width="1168" height="1468" fill="none" stroke="url(#deepRed5)" stroke-width="12" />
 
-  <!-- LEFT & RIGHT BATIK BANDS (W=120px) -->
-  <!-- Left Batik Column -->
-  <rect x="28" y="28" width="120" height="1444" fill="url(#deepRed)" />
-  <rect x="28" y="28" width="120" height="1444" fill="url(#batikParangLeft)" />
-  <line x1="148" y1="28" x2="148" y2="1472" stroke="url(#goldGrad)" stroke-width="4" />
+  <!-- LEFT & RIGHT BATIK COLUMNS (W=110px) -->
+  <rect x="28" y="28" width="110" height="1444" fill="url(#deepRed5)" />
+  <rect x="28" y="28" width="110" height="1444" fill="url(#batikParang5)" />
+  <line x1="138" y1="28" x2="138" y2="1472" stroke="url(#goldGrad5)" stroke-width="4" />
 
-  <!-- Right Batik Column -->
-  <rect x="1052" y="28" width="120" height="1444" fill="url(#deepRed)" />
-  <rect x="1052" y="28" width="120" height="1444" fill="url(#batikParangLeft)" />
-  <line x1="1052" y1="28" x2="1052" y2="1472" stroke="url(#goldGrad)" stroke-width="4" />
+  <rect x="1062" y="28" width="110" height="1444" fill="url(#deepRed5)" />
+  <rect x="1062" y="28" width="110" height="1444" fill="url(#batikParang5)" />
+  <line x1="1062" y1="28" x2="1062" y2="1472" stroke="url(#goldGrad5)" stroke-width="4" />
 
   <!-- TOP BANNER BLOCK -->
-  <path d="M 148,28 L 1052,28 L 1052,200 Q 600,230 148,200 Z" fill="url(#deepRed)" stroke="url(#goldGrad)" stroke-width="4" />
+  <path d="M 138,28 L 1062,28 L 1062,205 Q 600,235 138,205 Z" fill="url(#deepRed5)" stroke="url(#goldGrad5)" stroke-width="4" />
   
-  <text x="600" y="100" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="44" fill="url(#goldGrad)" text-anchor="middle" filter="url(#shadow)" letter-spacing="4">
+  <text x="600" y="100" font-family="'Outfit', sans-serif" font-weight="900" font-size="44" fill="url(#goldGrad5)" text-anchor="middle" filter="url(#shadow5)" letter-spacing="3">
     DIRGAHAYU REPUBLIK INDONESIA
   </text>
-  <text x="600" y="155" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
-    HUT RI KE-81
+  <text x="600" y="160" font-family="'Outfit', sans-serif" font-weight="800" font-size="30" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
+    HUT RI KE-81 &bull; 17 AGUSTUS 2026
   </text>
 
   <!-- BOTTOM BANNER BLOCK -->
-  <path d="M 148,1300 Q 600,1270 1052,1300 L 1052,1472 L 148,1472 Z" fill="url(#deepRed)" stroke="url(#goldGrad)" stroke-width="4" />
+  <path d="M 138,1290 Q 600,1260 1062,1290 L 1062,1472 L 138,1472 Z" fill="url(#deepRed5)" stroke="url(#goldGrad5)" stroke-width="4" />
 
-  <!-- Traditional Ornate Mandala/Flower Motif in the center of the bottom banner -->
-  <g transform="translate(600, 1386) scale(0.95)" fill="url(#goldGrad)" filter="url(#shadow)">
-    <!-- Traditional floral outline -->
+  <!-- Traditional Ornate Mandala in Center of Bottom Banner -->
+  <g transform="translate(600, 1380) scale(0.95)" fill="url(#goldGrad5)" filter="url(#shadow5)">
     <path d="M0,-50 C15,-20 40,-20 50,0 C40,20 15,20 0,50 C-15,20 -40,20 -50,0 C-40,-20 -15,-20 0,-50 Z" />
     <path d="M-50,0 C-20,-15 -20,-40 0,-50 C20,-40 20,-15 50,0 C20,15 20,40 0,50 C-20,40 -20,15 -50,0 Z" opacity="0.8" />
-    <circle cx="0" cy="0" r="12" fill="#B71C1C" stroke="url(#goldGrad)" stroke-width="3" />
+    <circle cx="0" cy="0" r="12" fill="#B71C1C" stroke="url(#goldGrad5)" stroke-width="3" />
   </g>
 
   <!-- Texts inside bottom block -->
   <!-- Left Side Text -->
-  <g transform="translate(200, 1375)">
-    <text x="0" y="0" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="34" fill="url(#goldGrad)">
+  <g transform="translate(190, 1365)">
+    <text x="0" y="0" font-family="'Outfit', sans-serif" font-weight="900" font-size="36" fill="url(#goldGrad5)">
       KARANGJAMBE
     </text>
-    <text x="0" y="35" font-family="'Outfit', sans-serif" font-weight="700" font-size="22" fill="#FFFFFF" letter-spacing="2">
+    <text x="0" y="38" font-family="'Outfit', sans-serif" font-weight="700" font-size="22" fill="#FFFFFF" letter-spacing="2">
       RUKUN TETANGGA 05
     </text>
   </g>
 
   <!-- Right Side Text -->
-  <g transform="translate(1000, 1375)">
-    <text x="0" y="0" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="34" fill="url(#goldGrad)" text-anchor="end">
-      17 AGUSTUS 2026
+  <g transform="translate(1010, 1365)">
+    <text x="0" y="0" font-family="'Outfit', sans-serif" font-weight="900" font-size="30" fill="url(#goldGrad5)" text-anchor="end">
+      BATIK NUSANTARA
     </text>
-    <text x="0" y="35" font-family="'Outfit', sans-serif" font-weight="700" font-size="22" fill="#FFFFFF" text-anchor="end" letter-spacing="2">
-      NKRI HARGA MATI
+    <text x="0" y="38" font-family="'Outfit', sans-serif" font-weight="700" font-size="20" fill="#FFFFFF" text-anchor="end" letter-spacing="2">
+      WARISAN BUDAYA BANGSA
     </text>
-  </g>
-
-  <!-- Corner Traditional Carving Ornaments (Gold) -->
-  <!-- Bottom Left over Batik -->
-  <g transform="translate(35, 1435) scale(0.6)" fill="url(#goldGrad)">
-    <path d="M 0,0 C 40,-10 60,-40 60,-80 L 80,-80 C 80,-20 40,20 0,40 Z" />
-    <circle cx="20" cy="-20" r="10" />
-  </g>
-  <!-- Bottom Right over Batik -->
-  <g transform="translate(1165, 1435) scale(0.6) scale(-1, 1)" fill="url(#goldGrad)">
-    <path d="M 0,0 C 40,-10 60,-40 60,-80 L 80,-80 C 80,-20 40,20 0,40 Z" />
-    <circle cx="20" cy="-20" r="10" />
   </g>
 </svg>

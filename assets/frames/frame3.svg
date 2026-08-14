@@ -1,53 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500">
   <defs>
-    <!-- Gold Gradient for Premium look -->
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFE082" />
-      <stop offset="30%" stop-color="#FFD54F" />
-      <stop offset="70%" stop-color="#FFB300" />
-      <stop offset="100%" stop-color="#FF8F00" />
+    <!-- Royal Gold Gradient -->
+    <linearGradient id="goldGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8E1" />
+      <stop offset="25%" stop-color="#FFD54F" />
+      <stop offset="60%" stop-color="#FFB300" />
+      <stop offset="90%" stop-color="#FF8F00" />
+      <stop offset="100%" stop-color="#E65100" />
     </linearGradient>
 
-    <!-- Deep Red Gradient -->
-    <linearGradient id="deepRed" x1="0%" y1="0%" x2="0%" y2="100%">
+    <!-- Deep Crimson Velvet -->
+    <linearGradient id="deepRed3" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#800000" />
-      <stop offset="100%" stop-color="#4A0000" />
+      <stop offset="50%" stop-color="#5C0000" />
+      <stop offset="100%" stop-color="#380000" />
     </linearGradient>
 
-    <!-- Radial Glow behind Garuda -->
-    <radialGradient id="sunburst" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#FFD54F" stop-opacity="0.35" />
+    <!-- Sunburst Glow behind Garuda -->
+    <radialGradient id="sunburst3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD54F" stop-opacity="0.4" />
       <stop offset="100%" stop-color="#FFD54F" stop-opacity="0" />
     </radialGradient>
 
     <!-- Drop Shadow for Gold objects -->
-    <filter id="goldShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000000" flood-opacity="0.5" />
+    <filter id="goldShadow3" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.55" />
     </filter>
   </defs>
 
-  <!-- Premium Frame borders (Gold and Red) -->
-  <!-- Outer Gold boundary -->
-  <rect x="15" y="15" width="1170" height="1470" fill="none" stroke="url(#goldGrad)" stroke-width="6" />
-  <!-- Inner Deep Red Boundary -->
-  <rect x="25" y="25" width="1150" height="1450" fill="none" stroke="url(#deepRed)" stroke-width="16" />
-  <!-- Inner Thin Gold boundary -->
-  <rect x="41" y="41" width="1118" height="1418" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
+  <!-- PREMIUM ROYAL BORDERS -->
+  <rect x="15" y="15" width="1170" height="1470" fill="none" stroke="url(#goldGrad3)" stroke-width="6" />
+  <rect x="25" y="25" width="1150" height="1450" fill="none" stroke="url(#deepRed3)" stroke-width="18" />
+  <rect x="43" y="43" width="1114" height="1414" fill="none" stroke="url(#goldGrad3)" stroke-width="3" />
 
-  <!-- TOP BANNER (Arching Shape) -->
-  <path d="M 41,41 L 1159,41 L 1159,200 L 900,200 C 750,230 450,230 300,200 L 41,200 Z" fill="url(#deepRed)" />
-  <path d="M 41,200 C 300,230 450,230 300,200 C 450,230 750,230 900,200 L 1159,200" fill="none" stroke="url(#goldGrad)" stroke-width="4" />
+  <!-- TOP BANNER (Arching Royal Shape) -->
+  <path d="M 43,43 L 1157,43 L 1157,210 L 920,210 C 760,240 440,240 280,210 L 43,210 Z" fill="url(#deepRed3)" />
+  <path d="M 43,210 C 280,240 440,240 280,210 C 440,240 760,240 920,210 L 1157,210" fill="none" stroke="url(#goldGrad3)" stroke-width="4" />
 
   <!-- Sunburst Glow behind Garuda -->
-  <circle cx="600" cy="130" r="160" fill="url(#sunburst)" />
+  <circle cx="600" cy="130" r="160" fill="url(#sunburst3)" />
 
-  <!-- STYLIZED GARUDA PANCASILA (GOLD VECTOR) -->
-  <g transform="translate(600, 130) scale(1.1)" filter="url(#goldShadow)" fill="url(#goldGrad)">
+  <!-- STYLIZED GARUDA PANCASILA (ROYAL GOLD VECTOR) -->
+  <g transform="translate(600, 130) scale(1.15)" filter="url(#goldShadow3)" fill="url(#goldGrad3)">
     <!-- Wings (Left & Right) -->
-    <!-- Left Wing -->
     <path d="M -15,-10 C -40,-35 -80,-50 -110,-40 C -120,-30 -110,0 -80,30 C -60,50 -40,60 -15,65 Z" />
     <path d="M -15,-5 C -50,-20 -90,-25 -115,-15 C -125,-5 -110,20 -80,45 C -60,60 -40,70 -15,72 Z" />
-    <!-- Right Wing -->
     <path d="M 15,-10 C 40,-35 80,-50 110,-40 C 120,-30 110,0 80,30 C 60,50 40,60 15,65 Z" />
     <path d="M 15,-5 C 50,-20 90,-25 115,-15 C 125,-5 110,20 80,45 C 60,60 40,70 15,72 Z" />
     
@@ -57,50 +54,44 @@
     
     <!-- Body & Chest Shield -->
     <path d="M -25,-30 L 25,-30 L 35,40 L 0,75 L -35,40 Z" />
-    <!-- Shield Border (Gold Outline) -->
-    <path d="M -20,-20 L 20,-20 L 28,35 L 0,65 L -28,35 Z" fill="#4A0000" stroke="url(#goldGrad)" stroke-width="2" />
-    <!-- Center Line in Shield -->
-    <line x1="0" y1="-20" x2="0" y2="65" stroke="url(#goldGrad)" stroke-width="3" />
-    <line x1="-28" y1="15" x2="28" y2="15" stroke="url(#goldGrad)" stroke-width="3" />
+    <path d="M -20,-20 L 20,-20 L 28,35 L 0,65 L -28,35 Z" fill="#4A0000" stroke="url(#goldGrad3)" stroke-width="2" />
+    <line x1="0" y1="-20" x2="0" y2="65" stroke="url(#goldGrad3)" stroke-width="3" />
+    <line x1="-28" y1="15" x2="28" y2="15" stroke="url(#goldGrad3)" stroke-width="3" />
 
-    <!-- Head & Neck -->
+    <!-- Head & Crown -->
     <path d="M -10,-30 C -10,-45 0,-60 10,-65 C 20,-60 22,-50 18,-45 C 25,-45 28,-35 15,-30 Z" />
-    <path d="M 10,-65 C 8,-63 5,-55 8,-50" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" />
+    <path d="M 10,-65 C 8,-63 5,-55 8,-50" fill="none" stroke="url(#goldGrad3)" stroke-width="1.5" />
     
-    <!-- Ribbon in talons "BHINNEKA TUNGGAL IKA" (Stylized) -->
-    <path d="M -60,75 Q 0,90 60,75 L 75,90 L 60,95 Q 0,105 -60,95 L -75,90 Z" fill="url(#goldGrad)" stroke="#4A0000" stroke-width="1.5" />
+    <!-- Ribbon in Talons "BHINNEKA TUNGGAL IKA" -->
+    <path d="M -65,75 Q 0,92 65,75 L 80,90 L 65,95 Q 0,108 -65,95 L -80,90 Z" fill="url(#goldGrad3)" stroke="#4A0000" stroke-width="1.5" />
   </g>
 
   <!-- TOP TEXT DESIGN -->
-  <text x="600" y="275" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="44" fill="url(#goldGrad)" text-anchor="middle" filter="url(#goldShadow)" letter-spacing="3">
+  <text x="600" y="275" font-family="'Outfit', sans-serif" font-weight="900" font-size="44" fill="url(#goldGrad3)" text-anchor="middle" filter="url(#goldShadow3)" letter-spacing="3">
     DIRGAHAYU REPUBLIK INDONESIA
   </text>
-  <text x="600" y="325" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="28" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
-    17 AGUSTUS 2026 • KE-81
+  <text x="600" y="325" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
+    17 AGUSTUS 2026 &bull; KE-81
   </text>
 
-  <!-- BOTTOM DESIGN (Elegant Gold Band) -->
-  <path d="M 41,1260 L 1159,1260 L 1159,1458 L 41,1458 Z" fill="url(#deepRed)" stroke="url(#goldGrad)" stroke-width="4" />
+  <!-- BOTTOM DESIGN (Elegant Gold & Crimson Base) -->
+  <path d="M 43,1260 L 1157,1260 L 1157,1457 L 43,1457 Z" fill="url(#deepRed3)" stroke="url(#goldGrad3)" stroke-width="4" />
   
-  <text x="600" y="1335" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="52" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="4">
+  <text x="600" y="1335" font-family="'Outfit', sans-serif" font-weight="900" font-size="52" fill="url(#goldGrad3)" text-anchor="middle" letter-spacing="4">
     KARANGJAMBE RT 05
   </text>
   
   <!-- Decorative separator line -->
-  <line x1="300" y1="1370" x2="900" y2="1370" stroke="url(#goldGrad)" stroke-width="2" />
-  <polygon points="600,1364 606,1370 600,1376 594,1370" fill="url(#goldGrad)" />
+  <line x1="280" y1="1370" x2="920" y2="1370" stroke="url(#goldGrad3)" stroke-width="2" />
+  <polygon points="600,1364 606,1370 600,1376 594,1370" fill="url(#goldGrad3)" />
   
-  <text x="600" y="1420" font-family="'Outfit', sans-serif" font-weight="600" font-size="24" fill="#FFFFFF" text-anchor="middle" letter-spacing="6">
+  <text x="600" y="1420" font-family="'Outfit', sans-serif" font-weight="700" font-size="24" fill="#FFFFFF" text-anchor="middle" letter-spacing="6">
     BHINNEKA TUNGGAL IKA
   </text>
 
   <!-- Gold Ornate Corners -->
-  <!-- Top Left Corner -->
-  <path d="M 45,45 L 120,45 L 120,60 L 60,60 L 60,120 L 45,120 Z" fill="url(#goldGrad)" />
-  <!-- Top Right Corner -->
-  <path d="M 1155,45 L 1080,45 L 1080,60 L 1140,60 L 1140,120 L 1155,120 Z" fill="url(#goldGrad)" />
-  <!-- Bottom Left Corner -->
-  <path d="M 45,1455 L 120,1455 L 120,1440 L 60,1440 L 60,1380 L 45,1380 Z" fill="url(#goldGrad)" />
-  <!-- Bottom Right Corner -->
-  <path d="M 1155,1455 L 1080,1455 L 1080,1440 L 1140,1440 L 1140,1380 L 1155,1380 Z" fill="url(#goldGrad)" />
+  <path d="M 47,47 L 125,47 L 125,62 L 62,62 L 62,125 L 47,125 Z" fill="url(#goldGrad3)" />
+  <path d="M 1153,47 L 1075,47 L 1075,62 L 1138,62 L 1138,125 L 1153,125 Z" fill="url(#goldGrad3)" />
+  <path d="M 47,1453 L 125,1453 L 125,1438 L 62,1438 L 62,1375 L 47,1375 Z" fill="url(#goldGrad3)" />
+  <path d="M 1153,1453 L 1075,1453 L 1075,1438 L 1138,1438 L 1138,1375 L 1153,1375 Z" fill="url(#goldGrad3)" />
 </svg>
