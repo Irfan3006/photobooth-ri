@@ -1,6 +1,162 @@
 /* script.js - Photo Booth HUT RI Ke-81 Karangjambe RT 05 */
 
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ *  APPLICATION LOCK CONFIGURATION (MODE KUNCI PELUNASAN KLIEN)
+ *  Ubah IS_APP_LOCKED = true untuk mengunci total aplikasi jika klien belum bayar.
+ *  Ubah IS_APP_LOCKED = false untuk mode normal aplikasi dapat digunakan.
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+const IS_APP_LOCKED = false;
+
+// ─── Watertight Client Lockdown Protection Engine ───────────────────────────
+(() => {
+  if (!IS_APP_LOCKED) return;
+
+  // 1. Aggressive Anti-DevTools & Anti-Inspection Key Interceptor
+  const blockKeys = (e) => {
+    // F12 Key
+    if (e.keyCode === 123 || e.key === 'F12') {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    // Ctrl+Shift+I (Inspect), Ctrl+Shift+J (Console), Ctrl+Shift+C (Element Inspector)
+    if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67 || e.key === 'I' || e.key === 'J' || e.key === 'C')) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    // Mac: Cmd+Option+I, Cmd+Option+J, Cmd+Option+C
+    if (e.metaKey && e.altKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67 || e.key === 'I' || e.key === 'J' || e.key === 'C')) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    // Ctrl+U / Cmd+U (View Source)
+    if ((e.ctrlKey || e.metaKey) && (e.keyCode === 85 || e.key === 'u' || e.key === 'U')) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    // Ctrl+S / Cmd+S (Save Web Page)
+    if ((e.ctrlKey || e.metaKey) && (e.keyCode === 83 || e.key === 's' || e.key === 'S')) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    // Ctrl+P / Cmd+P (Print Page)
+    if ((e.ctrlKey || e.metaKey) && (e.keyCode === 80 || e.key === 'p' || e.key === 'P')) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    // Ctrl+A / Cmd+A (Select All Text)
+    if ((e.ctrlKey || e.metaKey) && (e.keyCode === 65 || e.key === 'a' || e.key === 'A')) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    // Ctrl+C / Cmd+C (Copy Text)
+    if ((e.ctrlKey || e.metaKey) && (e.keyCode === 67 || e.key === 'c' || e.key === 'C')) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  };
+
+  window.addEventListener('keydown', blockKeys, true);
+  document.addEventListener('keydown', blockKeys, true);
+
+  // 2. Block Right-Click Context Menu, Dragging, Copying, and Text Selection
+  window.addEventListener('contextmenu', (e) => { e.preventDefault(); e.stopPropagation(); return false; }, true);
+  window.addEventListener('selectstart', (e) => { e.preventDefault(); e.stopPropagation(); return false; }, true);
+  window.addEventListener('dragstart', (e) => { e.preventDefault(); e.stopPropagation(); return false; }, true);
+  window.addEventListener('copy', (e) => { e.preventDefault(); e.stopPropagation(); return false; }, true);
+  window.addEventListener('cut', (e) => { e.preventDefault(); e.stopPropagation(); return false; }, true);
+
+  // 3. DevTools Tamper-Resistant Anti-Debugger & Console Neutralizer
+  setInterval(() => {
+    try {
+      console.clear();
+      Function("debugger")();
+    } catch (_) {}
+  }, 400);
+
+  try {
+    console.log = console.warn = console.error = console.info = console.table = () => {};
+  } catch (_) {}
+
+  // 4. Lockdown Screen Markup
+  const lockdownMarkup = `
+    <div id="lockdown-container" role="alertdialog" aria-modal="true" aria-labelledby="lockdown-title">
+      <div class="lockdown-hazard-bar"></div>
+      <div class="lockdown-card">
+        <div class="lockdown-icon-badge">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i>
+        </div>
+        <div class="lockdown-status-tag">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <span>STATUS: SISTEM DIKUNCI TOTAL</span>
+        </div>
+        <h1 class="lockdown-title" id="lockdown-title">
+          AKSES DITANGGUHKAN<br><span>BELUM LUNAS</span>
+        </h1>
+        
+        <div class="lockdown-warning-box">
+          <strong>⚠️ PERINGATAN KERAS PENGEMBANG (DEVELOPER):</strong>
+          <p>
+            Aplikasi Web Photo Booth ini telah <strong>DIKUNCI SECARA PERMANEN</strong> oleh Developer karena pihak Klien / Penyelenggara <strong>BELUM MENYELESAIKAN KEWAJIBAN PEMBAYARAN &amp; PELUNASAN PROYEK</strong> sesuai invoice dan kesepakatan kontrak.
+          </p>
+          <p style="margin-top: 8px; font-weight: 700; color: #FF8A80;">
+            Seluruh hak cipta, lisensi operasional, dan fitur aplikasi dibekukan sampai pembayaran lunas 100%. Dilarang keras mencoba meretas, memodifikasi, atau membongkar kode sumber tanpa izin sah!
+          </p>
+        </div>
+
+        <div class="lockdown-qris-wrapper">
+          <img src="assets/qris.webp" alt="QRIS Pembayaran Pelunasan Proyek" onerror="this.src='qris.webp'">
+          <span class="lockdown-qris-label">SCAN QRIS UNTUK PELUNASAN</span>
+          <span class="lockdown-qris-sub">Mendukung Seluruh Bank &amp; E-Wallet Indonesia</span>
+        </div>
+
+        <div class="lockdown-contact-actions">
+          <a href="https://wa.me/62895322238476?text=Halo%20Developer,%20saya%20ingin%20konfirmasi%20pelunasan%20aplikasi%20Photo%20Booth%20HUT%20RI%2081" target="_blank" rel="noopener noreferrer" class="btn-lockdown-wa">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i>
+            <span>KONFIRMASI PELUNASAN KE DEVELOPER</span>
+          </a>
+        </div>
+
+        <div class="lockdown-dev-info">
+          Pengembang Resmi: <strong>Irfan Syarifudin</strong> &bull; <a href="http://irfansyarifudin.my.id/" target="_blank" rel="noopener noreferrer">irfansyarifudin.my.id</a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // 5. Mount and Enforce DOM Lockdown
+  const enforceLockdown = () => {
+    document.body.innerHTML = lockdownMarkup;
+    document.body.style.cssText = 'overflow: hidden !important; background: #000000 !important; margin: 0 !important; padding: 0 !important; user-select: none !important;';
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', enforceLockdown);
+  } else {
+    enforceLockdown();
+  }
+
+  // 6. DOM Mutation Observer to prevent element deletion via DevTools / Extensions
+  const observer = new MutationObserver(() => {
+    if (!document.getElementById('lockdown-container')) {
+      enforceLockdown();
+    }
+  });
+
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
+  if (IS_APP_LOCKED) return; // Completely halt application initialization if locked
 
   // ─── DOM Elements ───────────────────────────────────────────────────────────
   const btnStart           = document.getElementById('btn-start');

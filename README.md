@@ -100,3 +100,11 @@ photo-booth/
 
 ### Production Deployment
 The application is pre-configured for static deployment on platforms such as Vercel, Netlify, or GitHub Pages. Production builds require no compilation step and run directly via static web hosting.
+
+---
+
+## Application License & Lockdown Control
+
+The application source includes a centralized security lockout mechanism (`IS_APP_LOCKED` in `script.js`):
+- **Normal Operation (`IS_APP_LOCKED = false`)**: Full application features, camera streams, frame selector, and download utilities operate normally.
+- **Lockdown Mode (`IS_APP_LOCKED = true`)**: Instantly freezes all application views, replaces DOM contents with a full-screen unpaid settlement notice (`assets/qris.webp`), and enforces strict anti-inspection safeguards (blocking Developer Tools shortcuts, context menu, text copying, printing, and DOM deletion).

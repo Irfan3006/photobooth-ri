@@ -1420,3 +1420,220 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   17. APPLICATION SECURITY & CLIENT UNPAID LOCKDOWN MODE
+   ═══════════════════════════════════════════════════════════ */
+#lockdown-container {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  background: radial-gradient(circle at center, #260205 0%, #0D0001 70%, #000000 100%) !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  overflow-y: auto !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.lockdown-hazard-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: repeating-linear-gradient(
+    45deg,
+    #FF1744,
+    #FF1744 15px,
+    #000000 15px,
+    #000000 30px
+  );
+}
+
+.lockdown-card {
+  position: relative;
+  background: linear-gradient(165deg, #1C0508 0%, #2B080D 45%, #140204 100%);
+  border: 3px solid #FF1744;
+  border-radius: 28px;
+  max-width: 580px;
+  width: 100%;
+  padding: clamp(24px, 4vw, 36px) clamp(16px, 3vw, 28px);
+  text-align: center;
+  color: #FFFFFF;
+  box-shadow: 0 0 60px rgba(255, 23, 68, 0.45), inset 0 0 30px rgba(255, 23, 68, 0.15);
+  animation: lockdownPulse 3s infinite ease-in-out;
+  margin: auto;
+}
+
+@keyframes lockdownPulse {
+  0%, 100% { box-shadow: 0 0 45px rgba(255, 23, 68, 0.4), inset 0 0 25px rgba(255, 23, 68, 0.15); border-color: #FF1744; }
+  50%      { box-shadow: 0 0 75px rgba(255, 23, 68, 0.7), inset 0 0 40px rgba(255, 23, 68, 0.3); border-color: #FF5252; }
+}
+
+.lockdown-icon-badge {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF1744 0%, #B71C1C 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #FFFFFF;
+  box-shadow: 0 0 25px rgba(255, 23, 68, 0.6);
+  border: 3px solid #FFFFFF;
+}
+
+.lockdown-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 23, 68, 0.2);
+  border: 1.5px solid #FF1744;
+  color: #FF5252;
+  font-weight: 900;
+  font-size: clamp(0.78rem, 2.2vw, 0.9rem);
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  border-radius: 30px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.lockdown-title {
+  font-size: clamp(1.4rem, 4.5vw, 1.85rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.lockdown-title span {
+  color: #FF1744;
+  text-shadow: 0 0 15px rgba(255, 23, 68, 0.6);
+}
+
+.lockdown-warning-box {
+  background: rgba(0, 0, 0, 0.65);
+  border-left: 4px solid #FF1744;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.lockdown-warning-box strong {
+  display: block;
+  color: #FF5252;
+  font-size: 0.98rem;
+  margin-bottom: 6px;
+}
+
+.lockdown-warning-box p {
+  color: #E2E8F0;
+  font-size: clamp(0.82rem, 2.2vw, 0.92rem);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.lockdown-qris-wrapper {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 16px 14px 12px;
+  display: inline-block;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 255, 255, 0.2);
+  border: 3px solid #FFD700;
+  max-width: 280px;
+  width: 100%;
+}
+
+.lockdown-qris-wrapper img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.lockdown-qris-label {
+  display: block;
+  color: #1A202C;
+  font-weight: 900;
+  font-size: 0.88rem;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.lockdown-qris-sub {
+  display: block;
+  color: #718096;
+  font-weight: 700;
+  font-size: 0.76rem;
+}
+
+.lockdown-contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-lockdown-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 14px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-lockdown-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6);
+  color: #FFFFFF;
+}
+
+.lockdown-dev-info {
+  font-size: 0.85rem;
+  color: #A0AEC0;
+  margin-top: 14px;
+}
+
+.lockdown-dev-info a {
+  color: #FFD700;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lockdown-dev-info a:hover {
+  text-decoration: underline;
+}
+
+@media print {
+  body * {
+    display: none !important;
+  }
+  #lockdown-container, #lockdown-container * {
+    display: block !important;
+  }
+}
