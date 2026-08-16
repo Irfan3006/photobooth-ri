@@ -53,7 +53,7 @@ An interactive, high-performance web-based photo booth application developed for
    - **Automatic Hardware Fallback**: Detects device capabilities dynamically and switches to screen illumination when hardware flash is unsupported.
 5. **Synchronized Countdown Sequence**: Automated 3-2-1 timer synchronized with pre-capture flash trigger.
 6. **Local File Upload Fallback**: Supports direct image selection from device storage when live camera streaming permissions are unavailable.
-7. **High-Resolution Canvas Compositing**: Combines camera input or uploaded photographs with selected frames onto a fixed 1080x1350 pixel canvas (4:5 portrait ratio).
+7. **Quality First Ultra HD Canvas Compositing**: Combines camera input (with direct hardware ImageCapture sensor acquisition where supported) or uploaded photographs with selected vector frames onto a 2160x2700 pixel 4K Ultra HD canvas (4:5 portrait ratio) with high-quality bicubic smoothing and lossless PNG output.
 8. **Multi-Platform Image Export**: Leverages the Web Share API for native mobile "Save to Photos" / share sheet functionality alongside direct Blob Object URL downloads.
 9. **Developer Portfolio Interface**: Interactive modal dialog documenting developer credentials and portfolio information for **Irfan Syarifudin** ([http://irfansyarifudin.my.id/](http://irfansyarifudin.my.id/)).
 

@@ -70,7 +70,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Main Application CSS (Versioned to bust mobile cache) -->
-  <link rel="stylesheet" href="style.css?v=81.5">
+  <link rel="stylesheet" href="style.css?v=81.9">
 
   <!-- Schema.org JSON-LD Structured Data for Advanced SEO & Rich Results -->
   <script type="application/ld+json">
@@ -188,7 +188,7 @@
           </div>
           <div class="feature-chip">
             <i class="fa-solid fa-camera-retro text-red" aria-hidden="true"></i>
-            <span>HD 4:5 Rasio</span>
+            <span>Ultra HD 4K Quality</span>
           </div>
         </div>
 
@@ -410,12 +410,16 @@
       <div class="booth-container container">
         <!-- Camera Area -->
         <div class="camera-wrapper">
-          <!-- Floating Camera Top Controls (iOS Style Flash & Camera Switch) -->
+          <!-- Floating Camera Top Controls (iOS Style Flash, Ultra-HD Badge, & Camera Switch) -->
           <div class="camera-top-bar">
             <button id="btn-toggle-flash" class="camera-tool-btn" type="button" title="Pengaturan Flash iPhone / HP" aria-label="Pengaturan Flash Kamera">
               <i id="btn-flash-icon" class="fa-solid fa-bolt-slash" aria-hidden="true"></i>
               <span id="flash-status-label" class="flash-label">Flash: Off</span>
             </button>
+            <div class="camera-quality-pill" title="Mode Kualitas Maksimal Aktif">
+              <i class="fa-solid fa-sparkles text-gold" aria-hidden="true"></i>
+              <span>ULTRA HD 4K</span>
+            </div>
             <button id="btn-toggle-camera-top" class="camera-tool-btn" type="button" title="Ganti Kamera Depan / Belakang" aria-label="Ganti Kamera">
               <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
             </button>
@@ -484,7 +488,7 @@
       <div class="section-header">
         <div class="header-text">
           <h2 id="result-heading">Hasil Foto Kamu</h2>
-          <p>Keren sekali! Kamu bisa langsung mengunduh hasil fotomu ke HP atau laptop.</p>
+          <p>Keren sekali! Foto tersimpan dalam resolusi Ultra HD (2160&times;2700) super tajam.</p>
         </div>
       </div>
 
@@ -576,6 +580,6 @@
   <canvas id="merge-canvas" style="display:none;" aria-hidden="true"></canvas>
 
   <!-- Core Script Loaded Asynchronously (Versioned to bust cache) -->
-  <script src="script.js?v=81.8" defer></script>
+  <script src="script.js?v=81.9" defer></script>
 </body>
 </html>

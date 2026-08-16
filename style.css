@@ -967,6 +967,30 @@ body {
   box-shadow: 0 0 16px rgba(255, 255, 255, 0.8);
 }
 
+.camera-quality-pill {
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #FFF;
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  user-select: none;
+  pointer-events: none;
+}
+
+.camera-quality-pill i {
+  color: #FFD700;
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.8));
+}
+
 /* Flash Toast Notification Popup */
 .flash-toast {
   position: absolute;

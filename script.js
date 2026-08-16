@@ -196,9 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultPhoto        = document.getElementById('result-photo');
   const mergeCanvas        = document.getElementById('merge-canvas');
 
-  // ─── Canvas Output Config (fixed high-res 4:5 ratio) ────────────────────────
-  const OUTPUT_WIDTH  = 1080;
-  const OUTPUT_HEIGHT = 1350;
+  // ─── Canvas Output Config (Quality First Ultra HD 4K 4:5 ratio) ────────────
+  const OUTPUT_WIDTH  = 2160;
+  const OUTPUT_HEIGHT = 2700;
 
   // ─── State ──────────────────────────────────────────────────────────────────
   let selectedFrame    = null;
@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showView(viewCamera);
   }
 
-  // ─── 3. Camera Management (iPhone 11 & Mobile 60FPS / Low Latency) ────────
+  // ─── 3. Camera Management (Quality First Ultra HD / Studio Sharpness) ─────
   async function startCamera(facingMode) {
     if (cameraLoader) cameraLoader.classList.remove('hidden');
     if (cameraError)  cameraError.classList.add('hidden');
@@ -435,22 +435,96 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const tryStart = async (mode) => {
-      // iPhone 11 optimized native camera constraints (prevents software downscaling stutter)
-      const constraints = {
-        video: {
-          facingMode: { ideal: mode },
-          width:  { ideal: 1280 },
-          height: { ideal: 720 },
-          frameRate: { ideal: 60, min: 30 }
+      // Quality-First Cascading Constraint Tiers (Prioritizes 4K UHD & Maximum Sensor Resolution)
+      const qualityConstraintTiers = [
+        // Tier 1: 4K UHD / Studio Quality (Max crispness & detail)
+        {
+          video: {
+            facingMode: { ideal: mode },
+            width:  { ideal: 3840, min: 1920 },
+            height: { ideal: 2160, min: 1080 },
+            frameRate: { ideal: 60, min: 24 },
+            resizeMode: 'none'
+          },
+          audio: false
         },
-        audio: false
-      };
+        // Tier 2: 1080p Full HD Studio Sharp
+        {
+          video: {
+            facingMode: { ideal: mode },
+            width:  { ideal: 1920, min: 1280 },
+            height: { ideal: 1080, min: 720 },
+            frameRate: { ideal: 60, min: 24 }
+          },
+          audio: false
+        },
+        // Tier 3: High-Res Unconstrained Maximum
+        {
+          video: {
+            facingMode: { ideal: mode },
+            width:  { ideal: 3840 },
+            height: { ideal: 2160 }
+          },
+          audio: false
+        },
+        // Tier 4: Hardware Default Fallback
+        {
+          video: {
+            facingMode: { ideal: mode }
+          },
+          audio: false
+        }
+      ];
 
-      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      let stream = null;
+      let lastErr = null;
+
+      for (const tierConstraint of qualityConstraintTiers) {
+        try {
+          stream = await navigator.mediaDevices.getUserMedia(tierConstraint);
+          if (stream) break;
+        } catch (tierErr) {
+          lastErr = tierErr;
+          console.warn('Constraint tier attempt fallback:', tierErr.name || tierErr);
+        }
+      }
+
+      if (!stream) {
+        throw lastErr || new Error('Tidak dapat membuka stream kamera pada resolusi yang didukung.');
+      }
+
       video.srcObject = stream;
       mediaStream = stream;
       isCameraActive = true;
       applyMirror(mode);
+
+      // Apply Advanced Sensor Controls for Studio Sharpness & Focus
+      const track = stream.getVideoTracks()[0];
+      if (track) {
+        try {
+          const caps = (typeof track.getCapabilities === 'function') ? (track.getCapabilities() || {}) : {};
+          const advanced = [];
+
+          if (caps.focusMode && Array.isArray(caps.focusMode) && caps.focusMode.includes('continuous')) {
+            advanced.push({ focusMode: 'continuous' });
+          }
+          if (caps.exposureMode && Array.isArray(caps.exposureMode) && caps.exposureMode.includes('continuous')) {
+            advanced.push({ exposureMode: 'continuous' });
+          }
+          if (caps.whiteBalanceMode && Array.isArray(caps.whiteBalanceMode) && caps.whiteBalanceMode.includes('continuous')) {
+            advanced.push({ whiteBalanceMode: 'continuous' });
+          }
+          if (caps.sharpness && typeof caps.sharpness === 'object' && caps.sharpness.max) {
+            advanced.push({ sharpness: caps.sharpness.max });
+          }
+
+          if (advanced.length > 0 && typeof track.applyConstraints === 'function') {
+            await track.applyConstraints({ advanced }).catch(() => {});
+          }
+        } catch (advErr) {
+          console.warn('Advanced camera constraints not applied:', advErr);
+        }
+      }
 
       if (flashMode === 'torch') {
         applyTorch(true).then(success => {
@@ -671,7 +745,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── 7. Ultra-Fast Canvas Merge (0ms Instant Snap & Blob Pipeline) ────────────
+  // ─── 7. Studio HD Image Acquisition & UHD Canvas Compositor (Quality First) ───
   const GOOGLE_DRIVE_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwhNF8RSs1mBzbbYBEobMlSFWMc-6RtNwr97IiT5UxCZUbuzB_v2PsOoQMPi4R2Km2kkA/exec';
 
   let currentResultBlob = null;
@@ -711,53 +785,115 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function mergeAndGenerate(isFromWebcam, shouldMirror) {
+  // Acquire Maximum Resolution Image Frame from Hardware Sensor (ImageCapture API or Video Frame)
+  async function acquireHighResSource(shouldMirror) {
+    if (!isCameraActive || !mediaStream) {
+      return { source: capturedImage || video, isDirectImage: true, mirror: false };
+    }
+
+    const videoTrack = mediaStream.getVideoTracks()[0];
+    if (videoTrack && typeof window.ImageCapture === 'function') {
+      try {
+        const imageCapture = new ImageCapture(videoTrack);
+        // Request hardware camera photo with maximum sensor resolution
+        const photoBlob = await imageCapture.takePhoto({
+          imageWidth: 3840,
+          imageHeight: 2160,
+          fillLightMode: (flashMode === 'torch') ? 'flash' : 'off'
+        }).catch(() => imageCapture.takePhoto());
+
+        if (photoBlob) {
+          const bitmapOrImg = await createImageBitmap(photoBlob).catch(() => {
+            return new Promise((resolve, reject) => {
+              const img = new Image();
+              img.onload = () => resolve(img);
+              img.onerror = reject;
+              img.src = URL.createObjectURL(photoBlob);
+            });
+          });
+          return { source: bitmapOrImg, isDirectImage: true, mirror: shouldMirror };
+        }
+      } catch (err) {
+        console.warn('ImageCapture hardware snapshot fallback to live video frame:', err);
+      }
+    }
+
+    // Fallback: draw directly from the high-res video element
+    return { source: video, isDirectImage: false, mirror: shouldMirror };
+  }
+
+  async function mergeAndGenerate(isFromWebcam, shouldMirror) {
     if (!selectedFrame) {
       alert('Tidak ada frame yang dipilih.');
       return;
     }
 
     const canvas = mergeCanvas;
-    const ctx    = canvas.getContext('2d', { alpha: false, willReadFrequently: false });
+    const ctx    = canvas.getContext('2d', {
+      alpha: false,
+      willReadFrequently: false,
+      colorSpace: 'srgb',
+      desynchronized: false
+    });
 
+    // 4K Ultra-HD Master Canvas Dimensions
     canvas.width  = OUTPUT_WIDTH;
     canvas.height = OUTPUT_HEIGHT;
 
-    // 1. White background
+    // Force Maximum Quality Bicubic Filtering for Razor Sharp Output
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+
+    // 1. Crisp White Background
     ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(0, 0, OUTPUT_WIDTH, OUTPUT_HEIGHT);
 
-    // 2. Draw photo with cover crop
-    const src = isFromWebcam ? video : capturedImage;
-    const srcW = isFromWebcam
-      ? (video.videoWidth || video.clientWidth || 1280)
-      : (capturedImage ? (capturedImage.naturalWidth || capturedImage.width || 1280) : 1280);
-    const srcH = isFromWebcam
-      ? (video.videoHeight || video.clientHeight || 720)
-      : (capturedImage ? (capturedImage.naturalHeight || capturedImage.height || 720) : 720);
+    // 2. High-Precision Photo Acquisition
+    let photoSource = capturedImage;
+    let mirror = shouldMirror;
+
+    if (isFromWebcam) {
+      const snapResult = await acquireHighResSource(shouldMirror);
+      photoSource = snapResult.source;
+      mirror = snapResult.mirror;
+    }
+
+    const srcW = photoSource.naturalWidth || photoSource.videoWidth || photoSource.width || 1920;
+    const srcH = photoSource.naturalHeight || photoSource.videoHeight || photoSource.height || 1080;
 
     ctx.save();
-    if (shouldMirror) {
+    if (mirror) {
       ctx.translate(OUTPUT_WIDTH, 0);
       ctx.scale(-1, 1);
     }
 
+    // Subtle Studio Clarity & Contrast Enhancement (Flattering skin tones & ultra-crisp micro-contrast)
+    ctx.filter = 'contrast(1.03) saturate(1.05) brightness(1.01)';
+
     const dstRatio = OUTPUT_WIDTH / OUTPUT_HEIGHT;
     const srcRatio = srcW / srcH;
     let sx = 0, sy = 0, sw = srcW, sh = srcH;
-    if (srcRatio > dstRatio) { sw = srcH * dstRatio; sx = (srcW - sw) / 2; }
-    else                      { sh = srcW / dstRatio; sy = (srcH - sh) / 2; }
+    if (srcRatio > dstRatio) {
+      sw = srcH * dstRatio;
+      sx = (srcW - sw) / 2;
+    } else {
+      sh = srcW / dstRatio;
+      sy = (srcH - sh) / 2;
+    }
 
-    ctx.drawImage(src, sx, sy, sw, sh, 0, 0, OUTPUT_WIDTH, OUTPUT_HEIGHT);
+    ctx.drawImage(photoSource, sx, sy, sw, sh, 0, 0, OUTPUT_WIDTH, OUTPUT_HEIGHT);
     ctx.restore();
 
-    // 3. Draw Pre-cached Frame Overlay (Instant 0ms Composite)
+    // Reset filter for frame artwork so vector colors stay 100% true and pristine
+    ctx.filter = 'none';
+
+    // 3. Draw Pre-cached High-Res Vector Frame Overlay
     const renderOutput = () => {
       try {
-        // High efficiency Blob export (avoids main-thread memory spike on iPhone 11)
+        // Full Lossless PNG Export (100% pristine quality, zero compression artifacts)
         canvas.toBlob((blob) => {
           if (!blob) {
-            const dataURL = canvas.toDataURL('image/png', 0.95);
+            const dataURL = canvas.toDataURL('image/png', 1.0);
             if (resultPhoto) resultPhoto.src = dataURL;
             showView(viewResult);
             uploadToGoogleDriveAsync(dataURL);
@@ -777,19 +913,19 @@ document.addEventListener('DOMContentLoaded', () => {
           // Asynchronous Google Drive Upload in Idle background
           if ('requestIdleCallback' in window) {
             requestIdleCallback(() => {
-              const dataURL = canvas.toDataURL('image/png', 0.92);
+              const dataURL = canvas.toDataURL('image/png', 1.0);
               uploadToGoogleDriveAsync(dataURL);
             });
           } else {
             setTimeout(() => {
-              const dataURL = canvas.toDataURL('image/png', 0.92);
+              const dataURL = canvas.toDataURL('image/png', 1.0);
               uploadToGoogleDriveAsync(dataURL);
             }, 100);
           }
-        }, 'image/png', 0.95);
+        }, 'image/png', 1.0);
       } catch (err) {
         console.error('Canvas export error:', err);
-        const dataURL = canvas.toDataURL('image/png', 0.95);
+        const dataURL = canvas.toDataURL('image/png', 1.0);
         if (resultPhoto) resultPhoto.src = dataURL;
         showView(viewResult);
       }
@@ -863,19 +999,20 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
       } catch (err) {
         console.error('Download error:', err);
+        const fallbackUrl = currentResultUrl || (resultPhoto ? resultPhoto.src : '');
         const newWin = window.open();
         if (newWin) {
           newWin.document.write(`
             <html lang="id">
             <head><title>Simpan Foto</title><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
             <body style="margin:0; background:#111; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; font-family:sans-serif; text-align:center; padding:20px;">
-              <img src="${dataURL}" style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.5);" />
+              <img src="${fallbackUrl}" style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.5);" />
               <p style="margin-top:20px; font-size:1.1rem; color:#ffeb3b;">Tekan & tahan gambar di atas untuk menyimpan ke Galeri HP (Save Image).</p>
             </body>
             </html>
           `);
-        } else {
-          window.location.href = dataURL;
+        } else if (fallbackUrl) {
+          window.location.href = fallbackUrl;
         }
       }
     });
